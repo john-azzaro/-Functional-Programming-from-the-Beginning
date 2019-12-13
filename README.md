@@ -26,3 +26,28 @@
 <br>
 <br>
 <br>
+
+# What is a function?
+<dl>
+<dd>
+
+***A function is a repeatable process or behavior.*** A function is *repeatable* (i.e. can be called multiple times) and *determinate* (i.e. predictable). Functions are *modular* and are the fundamental building blocks of JavaScript that perform tasks or calculate values.
+
+A function is comprised of: *function keyword, name, callsignature (with or without parameters), a main block of the function (where your code will go) inbetween curly braces.* To call a function, "call" the function name and pass any "arguments" that are needed.
+```JavaScript
+               //FUNCTION KEYWORD         //NAME       //CALL SIGNATURE (W/PARAMETER)
+               //                \           |         /
+                                function myFunction(str) {
+                                  return str;                     //MAIN BLOCK of function
+                                }
+                                console.log(myFunction("Hello!"));  //CALL (W/ARGUMENT)
+```
+
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
