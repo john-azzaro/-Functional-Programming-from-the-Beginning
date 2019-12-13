@@ -44,6 +44,7 @@ A function is comprised of: *function keyword, name, callsignature (with or with
                     myFunction("Hello!"));            //CALL (W/ARGUMENT)
 ```
 To understand the composition of a function better, let's look at each of the components of a function in closer detail:
+
 | **Component:**           | **ID:**              | **Description:**                            |
 | ------------------------ | ---------------------| ----------------------------------------------|
 |   function               | Keyword              |  Functions are "defined" with the ```function``` keyword and are often called "declaring" a function.             |
