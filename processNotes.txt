@@ -6,3 +6,4 @@ more to my understanding while also documenting the mor einteresting questions a
 Resources
 ==========
 https://github.com/getify/Functional-Light-JS  -- EXCELLENT book on functional javascript
+https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0  -- FP intro
