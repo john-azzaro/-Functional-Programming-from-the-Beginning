@@ -31,14 +31,15 @@
 <dl>
 <dd>
 
-**A function is a repeatable process or behavior.** A function is *repeatable* (i.e. can be called multiple times) and *determinate* (i.e. predictable). Functions are *modular* and are the fundamental building blocks of JavaScript that perform tasks or calculate values.
+**A function is a repeatable process or behavior that not only takes some input but returns some output.** A function is *repeatable* (i.e. can be called multiple times) and *determinate* (i.e. predictable). Functions are *modular* and are the fundamental building blocks of JavaScript that perform tasks or calculate values. 
 
+## A function has a basic anatomy
 A function is comprised of: *function keyword, name, callsignature (with or without parameters), a main block of the function (where your code will go) inbetween curly braces.* To call a function, "call" the function name and pass any "arguments" that are needed.
 ```JavaScript
     //FUNCTION KEYWORD        //NAME       //CALL SIGNATURE (W/PARAMETER)
     //               \           |         /
                     function myFunction(str) {
-                      return str;                     //MAIN BLOCK of function
+                      return str;                     //MAIN BLOCK of function that RETURNS a result
                     }
                     
                     myFunction("Hello!"));            //CALL (W/ARGUMENT)
@@ -48,13 +49,17 @@ To understand the composition of a function better, let's look at each of the co
 | **Component:**           | **ID:**              | **Description:**                            |
 | ------------------------ | ---------------------| ----------------------------------------------|
 |   function               | Keyword              |  Functions are "defined" with the ```function``` keyword and are often called "declaring" a function.             |
-|   myFunction             |  NAME                |  The name of the function is used to "invoke" the function elsewhere in your code. It can be optional (i.e. anonymous function) and can include upper and lower case letters, 0-9 numbers, underscore (_), cash sign ($), and some special characters.             |
+|   myFunction             |  Name               |  The name of the function is used to "invoke" the function elsewhere in your code. It can be optional (i.e. anonymous function) and can include upper and lower case letters, 0-9 numbers, underscore (_), cash sign ($), and some special characters.             |
 |   (str)                  |  Call Signature      | A call signature conatins "parameters", which are seperated by commas. You can have as many parameters as you wish. Additionally, remember the parameters are *local* and ONLY available inside the function.             |
 |    {...}                 |  Main Block          |  Since the objective of a function is to do something, the main block of your function has *instructions* which are themselves *statements*. These statements are seperated by semicolons (;).   |
+|    return              |     Return        |   The "return" statement returns a result, such as an object, an array, or even another function back to the caller. The return statement must be in the body of the function. Although it is technically optional, the use of "return" makes it a function and if there is not a return, it is called a *procedure*.             |
 |    myFunction();         |   Invocation         |   "calling" the function name allows the function to be used elsewhere in your code. Use the parentheses to call a function. Inside the parentheses, you pass "arguments" which will fit into the slot allocated in the function call signature.            |
 
+<br>
 
-
+## Functions must return something, otherwise it is a "procedure".
+In the context of functional programming, there are few things to keep in mind. First is that just because a function has a function keyword doesnt mean it can maintain itself as a function.
+What this means is that if a function does not RETURN something, it is a *procedure*.  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
 
 
 
