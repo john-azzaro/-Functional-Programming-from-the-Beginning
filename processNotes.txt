@@ -1,0 +1,8 @@
+Functional Programming Study Process Notes
+==========================================
+The objective of the functional programming study is to learn more about procedural programming and gradually add 
+more to my understanding while also documenting the mor einteresting questions and answers in this repository.
+
+Resources
+==========
+https://github.com/getify/Functional-Light-JS  -- EXCELLENT book on functional javascript
