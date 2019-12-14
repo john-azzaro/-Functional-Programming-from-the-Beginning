@@ -77,8 +77,9 @@ As mentioned, the example above is of a *function declaration* which is largely 
 
 <br>
 
-
-## If a function does not return something, it is a procedure.
+------
+### If a function does not return something, it is a procedure.
+------
 
 <dl>
 <dd>
@@ -88,7 +89,9 @@ In the context of functional programming, keep in mind that just because a funct
 </dd>
 </dl>
 
-## Parameters" are passed into a function, "arguments" when invoked.
+------
+### Pass "parameters"into a function and "arguments" into it's invocation.
+------
 
 <dl>
 <dd>
@@ -98,7 +101,9 @@ In the context of functional programming, keep in mind that just because a funct
 </dd>
 </dl>
 
-## Functions can parameters in different forms, such as inputs and default parameters.
+------
+### Parameters have different forms, such as inputs, default parameters, etc.
+------
 
 <dl>
 <dd>
