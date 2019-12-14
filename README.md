@@ -33,7 +33,7 @@
 
 **A function is a repeatable process or behavior that not only takes some input but returns some output.** A function is *repeatable* (i.e. can be called multiple times) and *determinate* (i.e. predictable). Functions are *modular* and are the fundamental building blocks of JavaScript that perform tasks or calculate values. 
 
-## A function has a basic anatomy
+## A function has a standard composition.
 A function is comprised of: *function keyword, name, callsignature (with or without parameters), a main block of the function (where your code will go) inbetween curly braces.* To call a function, "call" the function name and pass any "arguments" that are needed.
 ```JavaScript
     //FUNCTION KEYWORD        //NAME       //CALL SIGNATURE (W/PARAMETER)
@@ -61,6 +61,10 @@ To understand the composition of a function better, let's look at each of the co
 In the context of functional programming, there are few things to keep in mind. First is that just because a function has a function keyword doesnt mean it can maintain itself as a function.
 What this means is that if a function does not RETURN something, it is a *procedure*.  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
 
+## Parameters" are passed into a function, "arguments" when invoked.
+When you *define* a function, you pass in *parameters* into thier respective slot in the call signature. For example, if you had ```function add(num1, num2) {...}```, ```num1``` and ```num2``` are the paramters.  When you *invoke* a function (i.e. call a function after it has been declared), you pass in values as arguments. For example, if you invoke the function ```add``` you would pass in the two numbers in the call signature like so: ```add(1, 2)```.
+
+## Functions can have default parameters.
 
 
 
@@ -72,3 +76,6 @@ What this means is that if a function does not RETURN something, it is a *proced
 <br>
 <br>
 <br>
+
+# How many types of function are there?
+There are 3 functions: ***Named functions, Anonymous closure functions, and Immediately invoked function expressions***.

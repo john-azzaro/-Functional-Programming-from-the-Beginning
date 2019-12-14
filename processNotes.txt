@@ -7,3 +7,4 @@ Resources
 ==========
 https://github.com/getify/Functional-Light-JS  -- EXCELLENT book on functional javascript
 https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0  -- EXCELLENT FP intro
+https://forum.tutorials7.com/1847/how-many-types-of-functions-in-javascript  -- function types
