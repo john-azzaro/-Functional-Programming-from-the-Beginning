@@ -19,8 +19,6 @@
 
 **In contrast to the declaritve is the *imperative* where the reader of that code somewhere down the line has to read and mentally execute it**. In essence, code being imperiative means inferring from the code to understand what it is doing. In this way, imperative code can be harder to fix and maintain.
 
-In the context of functional programming, there are few things to keep in mind. First is that just because a function has a function keyword doesnt mean it can maintain itself as a function.
-**What this means is that if a function does not RETURN something, it is a procedure.**  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
 
 </dd>
 </dl>
@@ -72,10 +70,23 @@ To understand the composition of a function better, let's look at each of the co
 |    return              |     Return        |   The "return" statement returns a result, such as an object, an array, or even another function back to the caller. The return statement must be in the body of the function. Although it is technically optional, the use of "return" makes it a function and if there is not a return, it is called a *procedure*.             |
 |    myFunction();         |   Invocation         |   "calling" the function name allows the function to be used elsewhere in your code. Use the parentheses to call a function. Inside the parentheses, you pass "arguments" which will fit into the slot allocated in the function call signature.            |
 
-
+<br>
 <br>
 
 There are many particular idosyncracies for each of the components of a function, but here are a few notable ones:
+
+<br>
+<br>
+
+## If a function does not return something, it is a procedure.
+
+<dl>
+<dd>
+
+In the context of functional programming, keep in mind that just because a function has a function keyword doesnt mean it can maintain itself as a function. **What this means is that if a function does not RETURN something, it is a procedure.**  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
+
+</dd>
+</dl>
 
 ## Parameters" are passed into a function, "arguments" when invoked.
 
