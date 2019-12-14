@@ -58,13 +58,31 @@ To understand the composition of a function better, let's look at each of the co
 <br>
 
 ## Functions must return something, otherwise it is a "procedure".
+
+<dl>
+<dd>
+
 In the context of functional programming, there are few things to keep in mind. First is that just because a function has a function keyword doesnt mean it can maintain itself as a function.
 **What this means is that if a function does not RETURN something, it is a *procedure*.**  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
 
+</dd>
+</dl>
+
 ## Parameters" are passed into a function, "arguments" when invoked.
+
+<dl>
+<dd>
+
 **When you *define* a function, you pass in *parameters* into thier respective slot in the call signature.** For example, if you had ```function add(num1, num2) {...}```, ```num1``` and ```num2``` are the paramters.  **When you *invoke* a function (i.e. call a function after it has been declared), you pass in values as arguments.** For example, if you invoke the function ```add``` you would pass in the two numbers in the call signature like so: ```add(1, 2)```.
 
+</dd>
+</dl>
+
 ## Functions can parameters in different forms, such as inputs and default parameters.
+
+<dl>
+<dd>
+
 The standard way is to pass parameters to a function is as inputs:
 ```JavaScript
   function add(num1, num2) {...};
@@ -80,10 +98,8 @@ You can also pass in default parameters with an OR operator. Note that you do NO
   };
 ```
 
-
-
-
-
+</dd>
+</dl>
 
 </dd>
 </dl>
