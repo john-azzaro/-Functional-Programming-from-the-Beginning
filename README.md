@@ -59,12 +59,28 @@ To understand the composition of a function better, let's look at each of the co
 
 ## Functions must return something, otherwise it is a "procedure".
 In the context of functional programming, there are few things to keep in mind. First is that just because a function has a function keyword doesnt mean it can maintain itself as a function.
-What this means is that if a function does not RETURN something, it is a *procedure*.  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
+**What this means is that if a function does not RETURN something, it is a *procedure*.**  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
 
 ## Parameters" are passed into a function, "arguments" when invoked.
-When you *define* a function, you pass in *parameters* into thier respective slot in the call signature. For example, if you had ```function add(num1, num2) {...}```, ```num1``` and ```num2``` are the paramters.  When you *invoke* a function (i.e. call a function after it has been declared), you pass in values as arguments. For example, if you invoke the function ```add``` you would pass in the two numbers in the call signature like so: ```add(1, 2)```.
+**When you *define* a function, you pass in *parameters* into thier respective slot in the call signature.** For example, if you had ```function add(num1, num2) {...}```, ```num1``` and ```num2``` are the paramters.  **When you *invoke* a function (i.e. call a function after it has been declared), you pass in values as arguments.** For example, if you invoke the function ```add``` you would pass in the two numbers in the call signature like so: ```add(1, 2)```.
 
-## Functions can have default parameters.
+## Functions can parameters in different forms, such as inputs and default parameters.
+The standard way is to pass parameters to a function is as inputs:
+```JavaScript
+  function add(num1, num2) {...};
+```
+You can also insert a default parameter INSIDE the call signature.
+```JavaScript
+  function add(num1, num2 = 5) {...};
+```
+You can also pass in default parameters with an OR operator. Note that you do NOT instantiate the default parameter as a variable.
+```JavaScript
+  function add(num1, num2) {
+    num2 = num2 || 5
+  };
+```
+
+
 
 
 
@@ -77,5 +93,5 @@ When you *define* a function, you pass in *parameters* into thier respective slo
 <br>
 <br>
 
-# How many types of function are there?
-There are 3 functions: ***Named functions, Anonymous closure functions, and Immediately invoked function expressions***.
+# How do you define a function?
+There are ways to define a function: ***Named functions (declaration and expression), Anonymous closure functions, and Immediately invoked function expressions***.
