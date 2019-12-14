@@ -33,8 +33,20 @@
 
 **A function is a repeatable process or behavior that not only takes some input but returns some output.** A function is *repeatable* (i.e. can be called multiple times) and *determinate* (i.e. predictable). Functions are *modular* and are the fundamental building blocks of JavaScript that perform tasks or calculate values. A function is a semantic relationship between the input and the computed output (i.e. a relationship between what you put in and what you get out).
 
-## A function has a standard composition.
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
+
+# What are the basic components of a function?
 A function is comprised of: *function keyword, name, callsignature (with or without parameters), a main block of the function (where your code will go) inbetween curly braces.* To call a function, "call" the function name and pass any "arguments" that are needed.
+
+<dl>
+<dd>
+
 ```JavaScript
     //FUNCTION KEYWORD        //NAME       //CALL SIGNATURE (W/PARAMETER)
     //               \           |         /
@@ -54,6 +66,7 @@ To understand the composition of a function better, let's look at each of the co
 |    {...}                 |  Main Block          |  Since the objective of a function is to do something, the main block of your function has *instructions* which are themselves *statements*. These statements are seperated by semicolons (;).   |
 |    return              |     Return        |   The "return" statement returns a result, such as an object, an array, or even another function back to the caller. The return statement must be in the body of the function. Although it is technically optional, the use of "return" makes it a function and if there is not a return, it is called a *procedure*.             |
 |    myFunction();         |   Invocation         |   "calling" the function name allows the function to be used elsewhere in your code. Use the parentheses to call a function. Inside the parentheses, you pass "arguments" which will fit into the slot allocated in the function call signature.            |
+
 
 <br>
 
@@ -101,6 +114,8 @@ You can also pass in default parameters with an OR operator. Note that you do NO
 </dd>
 </dl>
 
+
+
 </dd>
 </dl>
 
@@ -111,3 +126,5 @@ You can also pass in default parameters with an OR operator. Note that you do NO
 
 # How do you define a function?
 There are ways to define a function: ***Named functions (declaration and expression), Anonymous closure functions, and Immediately invoked function expressions***.
+
+## Named functions 
