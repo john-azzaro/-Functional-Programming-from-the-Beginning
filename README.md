@@ -73,10 +73,10 @@ To understand the composition of a function better, let's look at each of the co
 <br>
 <br>
 
-There are many particular idosyncracies for each of the components of a function, but here are a few notable ones:
+As mentioned, the example above is of a *function declaration* which is largely the standard layout of a function. However, much of the same information applies to other ways we can declare a function. In addition, each of the components have thier own particular quirks, features, functionalities, etc. There are a LOT of them as you gain more experience but here are some interesting ones to keep in mind moving forward.
 
 <br>
-<br>
+
 
 ## If a function does not return something, it is a procedure.
 
