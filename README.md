@@ -73,7 +73,6 @@ To understand the composition of a function better, let's look at each of the co
 <br>
 <br>
 
-## There's lots of special considerations for functions and its components.
 As mentioned, the example above is of a *function declaration* which is largely the standard layout of a function. However, much of the same information applies to other ways we can declare a function. In addition, each of the components have thier own particular quirks, features, functionalities, etc. There are a LOT of them as you gain more experience but here are some interesting ones to keep in mind moving forward.
 
 <br>
