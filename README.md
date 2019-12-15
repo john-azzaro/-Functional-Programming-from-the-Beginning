@@ -138,20 +138,44 @@ You can also pass in default parameters with an OR operator. Note that you do NO
 # How do you define a function?
 There are ways a few ways to define a function: ***Named functions (declaration and expression), Anonymous closure functions, and Immediately invoked function expressions.*** Each way has thier own unique charicteristics.
 
+<dl>
+<dd>
+
 <br>
 
 ## Named functions are either function declaration or expressions.
 A **function declaration** is a common way defining a function. Function declarations are hoisted (i.e. how the browser parses JavaScript reading through once and executing on the second pass) with it's contents to the top level. This even applies to function declarations inside a function which would be hoisted to the top. Here's an example of a function declaration:
 ```JavaScript
-  function add(num1, num2) {
+  function addDeclaration(num1, num2) {
     return num1 + num2;
   }
 ```
+<br>
+
 A **function expression** (or "definition expression" or "function literal") is a JavaScript pattern that lets you create a variable and execute it as a function. As a variable, a function expression can be set to a number, a string, an object, or even a function. Unlike a function declaration, function expressions are NOT hoisted with contents, but the reference to it may be hoisted if we assign it as a variable and you can use it everywhere a variable can go. Note that because of an issue with hoisting, if you invoke a function expression before the function itself, you will get an error. Also note that since a function expression is a variable (or if it is a const), we need to terminate the function with a semi-colon.
 ```JavaScript
-  let add
+  let addExpression = function(num1, num2) {
+    return num1 + num2;
+  };
 ```
+
+And of course, this use ES6 syntax with the fat arrow function:
+```JavaScript
+  let addExpression = (num1, num2) => num1 + num2;
+```
+
+Function expressions can also be called through other variables:
+```JavaScript
+  let addExpression = function(num1, num2) {
+    return num1 + num2;
+  };
+
+  let addThisUp = addExpression;          // variable called through another variable.
+```
+
+</dd>
+</dl>
 
 <br>
 
-## 
+
