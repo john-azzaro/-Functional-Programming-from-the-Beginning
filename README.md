@@ -75,7 +75,7 @@ To understand the composition of a function better, let's look at each of the co
 
 As mentioned, the example above is of a *function declaration* which is largely the standard layout of a function. However, much of the same information applies to other ways we can declare a function. In addition, each of the components have thier own particular quirks, features, functionalities, etc. 
 
-There are a LOT of them as you gain more experience but here are some interesting ones to keep in mind moving forward.
+There's a LOT quirks and features to consider, but here are some interesting ones to keep in mind:
 
 <br>
 
@@ -84,20 +84,41 @@ There are a LOT of them as you gain more experience but here are some interestin
 <dd>
 
 In the context of functional programming, keep in mind that just because a function has a function keyword doesnt mean it can maintain itself as a function. **What this means is that if a function does not RETURN something, it is a procedure.**  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
+```JavaScript
+  function addNumbers(a = 0, b = 0, c = 0) {     // Does not RETURN, is procedural.
+    let total = a + b + c;
+    console.log(total);
+  }
+
+  function moreNumbers(a = 2,...args) {          // Returns something, but relies on procedural.
+    return addNumbers(a, 20,...args);
+  }
+
+  moreNumbers(); 
+```
 
 </dd>
 </dl>
 
+<br>
 
 ## Pass "parameters"into a function and "arguments" into it's invocation.
 <dl>
 <dd>
 
 **When you define a function, you pass in parameters into thier respective slot in the call signature.** For example, if you had ```function add(num1, num2) {...}```, ```num1``` and ```num2``` are the paramters.  **When you invoke a function (i.e. call a function after it has been declared), you pass in values as arguments.** For example, if you invoke the function ```add``` you would pass in the two numbers in the call signature like so: ```add(1, 2)```.
+```JavaScript
+  function add(num1, num2) {...}       // When declared, "num1" and "num2" here are PARAMETERS.
+
+  add(num1, num2);                     // When invoked, "num1" and "num2" here are ARGUEMENTS.
+```
+
+
 
 </dd>
 </dl>
 
+<br>
 
 ## Parameters have different forms, such as inputs, default parameters, etc.
 <dl>
