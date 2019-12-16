@@ -2,6 +2,9 @@
 
 * [What is Functional Programming?](#What-is-Functional-Programming)
 * [What is a function?](#What-is-a-function)
+* [How does a function work?](#How-does-a-function-work)
+* [How do you define a function?](#How-do-you-define-a-function)
+* [](#)
 * [](#)
 
 <br>
@@ -42,7 +45,7 @@
 <br>
 <br>
 
-# What are the basic components of a function?
+## How does a function work?
 A function is comprised of: *function keyword, name, callsignature (with or without parameters), a main block of the function (where your code will go) inbetween curly braces.* To call a function, "call" the function name and pass any "arguments" that are needed. 
 
 Below we have an example of a *function declaration* (which is one of serveral ways you can define a function) with the core components marked and explained in detail below that.
@@ -59,6 +62,10 @@ Below we have an example of a *function declaration* (which is one of serveral w
                     
                     myFunction("Hello!"));            //CALL (W/ARGUMENT)
 ```
+
+<br>
+
+## What are the basic components of a function?
 To understand the composition of a function better, let's look at each of the components of a function in closer detail:
 
 | **Component:**           | **ID:**              | **Description:**                            |
@@ -83,7 +90,7 @@ There's a LOT quirks and features to consider, but here are some interesting one
 <dl>
 <dd>
 
-In the context of functional programming, keep in mind that just because a function has a function keyword doesnt mean it can maintain itself as a function. **What this means is that if a function does not RETURN something, it is a procedure.**  Any function that calls a procedure cant be called a function, it becomes a procedure as well. This is important in order to take advantage of function programming.
+**If a function does not RETURN something, it is a procedure.** In the context of functional programming, keep in mind that just because a function has a function keyword doesnt mean it can maintain itself as a function. In other words, any function that calls a procedure CANNOT be called a function... it becomes a procedure as well. This is important in order to take advantage of function programming.
 ```JavaScript
   function addNumbers(a = 0, b = 0, c = 0) {     // Does not RETURN, is procedural.
     let total = a + b + c;
@@ -106,14 +113,14 @@ In the context of functional programming, keep in mind that just because a funct
 <dl>
 <dd>
 
-**When you define a function, you pass in parameters into thier respective slot in the call signature.** For example, if you had ```function add(num1, num2) {...}```, ```num1``` and ```num2``` are the paramters.  **When you invoke a function (i.e. call a function after it has been declared), you pass in values as arguments.** For example, if you invoke the function ```add``` you would pass in the two numbers in the call signature like so: ```add(1, 2)```.
+**When you define a function, you pass in parameters into thier respective slot in the call signature.** 
+
+For example, if you had ```function add(num1, num2) {...}```, ```num1``` and ```num2``` are the paramters.  **When you invoke a function (i.e. call a function after it has been declared), you pass in values as arguments.** For example, if you invoke the function ```add``` you would pass in the two numbers in the call signature like so: ```add(1, 2)```.
 ```JavaScript
   function add(num1, num2) {...}       // When declared, "num1" and "num2" here are PARAMETERS.
 
   add(num1, num2);                     // When invoked, "num1" and "num2" here are ARGUEMENTS.
 ```
-
-
 
 </dd>
 </dl>
@@ -124,15 +131,15 @@ In the context of functional programming, keep in mind that just because a funct
 <dl>
 <dd>
 
-The standard way is to pass parameters to a function is as inputs:
+**You can pass parameters to a function as inputs:**
 ```JavaScript
   function add(num1, num2) {...};
 ```
-You can also insert a default parameter INSIDE the call signature.
+**You can insert default parameters INSIDE the call signature:**
 ```JavaScript
   function add(num1, num2 = 5) {...};
 ```
-You can also pass in default parameters with an OR operator. Note that you do NOT instantiate the default parameter as a variable.
+**You can pass in default parameters in the function body with an OR operator.** *Note that you do NOT instantiate the default parameter as a variable.*
 ```JavaScript
   function add(num1, num2) {
     num2 = num2 || 5
