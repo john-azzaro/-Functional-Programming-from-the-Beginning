@@ -45,7 +45,7 @@
 <br>
 <br>
 
-## How does a function work?
+# How does a function work?
 A function is comprised of: *function keyword, name, callsignature (with or without parameters), a main block of the function (where your code will go) inbetween curly braces.* To call a function, "call" the function name and pass any "arguments" that are needed. 
 
 Below we have an example of a *function declaration* (which is one of serveral ways you can define a function) with the core components marked and explained in detail below that.
@@ -198,6 +198,15 @@ Function expressions can also be called through other variables:
 
   let addThisUp = addExpression;          // variable called through another variable.
 ```
+
+<br>
+
+## Anonymous closure functions are invoked automatically.
+An **anonymous closure function** is imvoked autmotatically on load. Anonymous closures do NOT have names since they run at start. Additionally, variables declared inside the function body will NOT be know outside an anonymous closure
+
+
+
+
 
 </dd>
 </dl>
