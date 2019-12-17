@@ -218,9 +218,12 @@ An **Immediately invoked function expression** (or IIFE) is imvoked automaticall
 <br>
 
 # What is hoisting and scope?
-**Hoisting** is the process of moving the FUNCTION DECLARATIONS to the top of the file automatically. 
+***Hoisting*** is the process of moving the FUNCTION DECLARATIONS to the top of the file automatically. 
 
 Hoisting refers to how browsers parse JavaScript. On the first pass, the browser reads through the code once, setting aside space for variables, functions, etc. On the second pass, the browser reads through AGAIN and executes the code. With hoisting, we can call a FUNCTION before it has been defined.
 
+However, you CANNOT call a function that is defined using FUNCTION EXPRESSION syntax. This is because when the JavaScript engine executes the code, it moves all the function DECLARATIONS to the top. When all the function declarations are 'HOISTED' to the top, we get the term 'hoisting'.
+
+***Scope*** defines how declared variables and functions CAN or CANNOT be accessed at different places in your code. With **Global scope**, the function or variable is available EVERYWHERE in the code. With **Block (local) scope**, a variable is only available within the confines of the function.
 
 
