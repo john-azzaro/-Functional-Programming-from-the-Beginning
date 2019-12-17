@@ -162,7 +162,7 @@ Note that you do NOT instantiate the default parameter as a variable.
 <br>
 
 # How do you define a function?
-There are ways a few ways to define a function: ***Named functions (declaration and expression), Anonymous closure functions, and Immediately invoked function expressions.*** Each way has thier own unique charicteristics.
+There are ways a few ways to define a function: ***Named functions (declaration and expression) and Immediately invoked function expressions.*** 
 
 <dl>
 <dd>
@@ -201,9 +201,13 @@ Function expressions can also be called through other variables:
 
 <br>
 
-## Anonymous closure functions are invoked automatically.
-An **anonymous closure function** is imvoked autmotatically on load. Anonymous closures do NOT have names since they run at start. Additionally, variables declared inside the function body will NOT be know outside an anonymous closure.
-
+## Immediately invoked function expressions are invoked automatically.
+An **Immediately invoked function expression** (or IIFE) is imvoked automatically on load. IIFE's do NOT have names since they run at start. Additionally, variables declared inside the function body will NOT be know outside an an IIFE.
+```JavaScript
+  (function(message) {
+    console.log(message)
+  })("This is an immediately invoked function expression");
+```
 
 
 
