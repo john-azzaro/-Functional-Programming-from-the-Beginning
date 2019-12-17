@@ -202,7 +202,7 @@ Function expressions can also be called through other variables:
 <br>
 
 ## Anonymous closure functions are invoked automatically.
-An **anonymous closure function** is imvoked autmotatically on load. Anonymous closures do NOT have names since they run at start. Additionally, variables declared inside the function body will NOT be know outside an anonymous closure
+An **anonymous closure function** is imvoked autmotatically on load. Anonymous closures do NOT have names since they run at start. Additionally, variables declared inside the function body will NOT be know outside an anonymous closure.
 
 
 
