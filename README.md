@@ -209,12 +209,18 @@ An **Immediately invoked function expression** (or IIFE) is imvoked automaticall
   })("This is an immediately invoked function expression");
 ```
 
-
-
-
 </dd>
 </dl>
 
 <br>
+<br>
+<br>
+<br>
+
+# What is hoisting and scope?
+**Hoisting** is the process of moving the FUNCTION DECLARATIONS to the top of the file automatically. 
+
+Hoisting refers to how browsers parse JavaScript. On the first pass, the browser reads through the code once, setting aside space for variables, functions, etc. On the second pass, the browser reads through AGAIN and executes the code. With hoisting, we can call a FUNCTION before it has been defined.
+
 
 
