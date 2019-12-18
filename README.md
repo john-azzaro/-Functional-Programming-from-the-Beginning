@@ -246,27 +246,31 @@ On the subject of global scope are some of the **negative attributes of global v
 <dl>
 <dd>
 
-A **side effect**  
+**A *side effect* is essentially a reference to the indirect inputs or outputs of a function.** 
 
-Take a look at the procedure below. While this bit of code technically will work, this is NOT a function because while there a relationship between the inputs and the outputs, the 
-
-Note that there are NO parameters listed and there is NO return keyword.
-
+For example, take a look at the procedure below. While this bit of code technically will work, this is NOT a function because while there a relationship between the inputs and the outputs, the inputs and the outpits are INDIRECT so it is not a true function even thought there is a semantic relationship between the variables used in the function and the stated variables outside that function. Note that there are NO parameters listed and there is NO return keyword. Simply put, while this does work, there is a lack of security and proveability that makes this a true function.
 ```JavaScript
-  function add() {
+  function add() {                    // no parameters passed in.
     total = num1 + num2;
   }
 
-  let total;
-  let num1 = 2;
+  let total; 
+  let num1 = 2;                       // Indirect variables.
   let num2 = 3;
   add()
   total;
 
-  console.log(total);      // 5
-
+  console.log(total);                 // 5
 ```
 
+To make the example above a TRUE function, you need to pass in the inputs (i.e. num1 and num2) and return an output (num1 + num2). When you call the function and assign some arguments that correspond to the parameters of the function, it is DIRECT input semantically tied to DIRECT output. This is a true function. And perhaps the most important part of this is that the function call to get the reliable and predictable result.
+```JavaScript
+  function add(num1, num2) {
+    return num1 + num2;
+  }
+
+  console.log(add(2, 3));             // 5
+```
 
 
 
