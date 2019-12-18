@@ -46,17 +46,7 @@
 <br>
 
 # What are the four primary parts of a functions
-A function is comprised of: 
-* Function keyword
-* Name
-* Callsignature (with or without parameters)
-* Main block of the function (where your code will go) inbetween curly braces.
-
-Below we have an example of a *function declaration* (which is one of serveral ways you can define a function) with the core components marked and explained in detail below that. Note that when a function has been defined, you can "call" a function which means you can invoke the function name and pass any "arguments" that are needed to return a result. 
-
-<dl>
-<dd>
-
+The best way to explain how a function works is to examine the primary parts of a function first to gain a better understanding of what a function is and what it does. Below we have an example of a *function declaration* (which is one of serveral ways you can define a function) with the core components marked and explained in detail below that. Note that when a function has been defined, you can "call" a function which means you can invoke the function name and pass any "arguments" that are needed to return a result. 
 ```JavaScript
     //FUNCTION KEYWORD        //NAME       //CALL SIGNATURE (W/PARAMETER)
     //               \           |         /
@@ -67,16 +57,23 @@ Below we have an example of a *function declaration* (which is one of serveral w
                     myFunction("Hello!"));            //CALL (W/ARGUMENT)
 ```
 
-<br>
+<dl>
+<dd>
 
 ## There a four primary parts of a function.
-The four primary parts of a function are: *the function keyword, the name(optional), the parameters, and the statements enclosed in braces.*
+There are FOUR primary parts of a function that you need to be familiar with, specifically: 
+* Function keyword
+* Name
+* Callsignature (with or without parameters)
+* Main block of the function (where your code will go) inbetween curly braces.
+
+<br>
 
 | **Component:**           | **ID:**              | **Description:**                            |
 | ------------------------ | ---------------------| ----------------------------------------------|
 |   function               | Keyword              |  Functions are "defined" with the ```function``` keyword and are often called "declaring" a function.             |
 |   myFunction             |  Name                |  The name of the function is used to "invoke" the function elsewhere in your code. It can be optional (i.e. anonymous function) and can include upper and lower case letters, 0-9 numbers, underscore (_), cash sign ($), and some special characters.             |
-|   (str)                  |  Call Signature      | A call signature conatins "parameters", which are seperated by commas. You can have as many parameters as you wish. Additionally, remember the parameters are *local* and ONLY available inside the function.             |
+|   (str)                  |  Call Signature      | A call signature contains "parameters", which are seperated by commas. You can have as many parameters as you wish. Additionally, remember the parameters are *local* and ONLY available inside the function.             |
 |    {...}                 |  Main Block          |  Since the objective of a function is to do something, the main block of your function has *instructions* which are themselves *statements* enclosed by braces (i.e. {} ). These statements are seperated by semicolons (;). |
 |    return              |     Return             |   The "return" statement returns a result, such as an object, an array, or even another function back to the caller. The return statement must be in the body of the function. Although it is technically optional, the use of "return" makes it a function and if there is not a return, it is called a *procedure*.             |
 |    myFunction();         |   Invocation         |   "calling" the function name allows the function to be used elsewhere in your code. Use the parentheses to call a function. Inside the parentheses, you pass "arguments" which will fit into the slot allocated in the function call signature.            |
@@ -84,9 +81,8 @@ The four primary parts of a function are: *the function keyword, the name(option
 <br>
 <br>
 
-As mentioned, the example above is of a *function declaration* which is largely the standard layout of a function. However, much of the same information applies to other ways we can declare a function. In addition, each of the components have thier own particular quirks, features, functionalities, etc. 
-
-There's a LOT quirks and features to consider, but here are some interesting ones to keep in mind:
+## Each part of a function have special considerations.
+As mentioned, the example above is of a *function declaration* which is largely the standard layout of a function. However, much of the same information applies to other ways we can declare a function. In addition, each of the components have thier own particular quirks, features, functionalities, etc. There's a LOT quirks and features to consider, but here are some interesting ones to keep in mind:
 
 <br>
 
