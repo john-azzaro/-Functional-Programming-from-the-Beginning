@@ -62,26 +62,26 @@ The best way to explain how a function works is to examine the primary parts of 
 
 ## There a four primary parts of a function.
 There are FOUR primary parts of a function that you need to be familiar with, specifically: 
-* Function keyword
-* Name
-* Callsignature (with or without parameters)
-* Main block of the function (where your code will go) inbetween curly braces.
+1. Function keyword
+2. Name
+3. Callsignature (with or without parameters)
+4. Main block of the function (where your code will go) inbetween curly braces.
 
 <br>
 
 | **Component:**           | **ID:**              | **Description:**                            |
 | ------------------------ | ---------------------| ----------------------------------------------|
-|   function               | Keyword              |  Functions are "defined" with the ```function``` keyword and are often called "declaring" a function.             |
-|   myFunction             |  Name                |  The name of the function is used to "invoke" the function elsewhere in your code. It can be optional (i.e. anonymous function) and can include upper and lower case letters, 0-9 numbers, underscore (_), cash sign ($), and some special characters.             |
-|   (str)                  |  Call Signature      | A call signature contains "parameters", which are seperated by commas. You can have as many parameters as you wish. Additionally, remember the parameters are *local* and ONLY available inside the function.             |
-|    {...}                 |  Main Block          |  Since the objective of a function is to do something, the main block of your function has *instructions* which are themselves *statements* enclosed by braces (i.e. {} ). These statements are seperated by semicolons (;). |
-|    return              |     Return             |   The "return" statement returns a result, such as an object, an array, or even another function back to the caller. The return statement must be in the body of the function. Although it is technically optional, the use of "return" makes it a function and if there is not a return, it is called a *procedure*.             |
-|    myFunction();         |   Invocation         |   "calling" the function name allows the function to be used elsewhere in your code. Use the parentheses to call a function. Inside the parentheses, you pass "arguments" which will fit into the slot allocated in the function call signature.            |
+|   ***function***               | *Keyword*              |  Functions are "defined" with the ```function``` keyword and are often called "declaring" a function.             |
+|   ***myFunction***             |  *Name*                |  The name of the function is used to "invoke" the function elsewhere in your code. It can be optional (i.e. anonymous function) and can include upper and lower case letters, 0-9 numbers, underscore (_), cash sign ($), and some special characters.             |
+|   ***(str)***                  |  *Call Signature*      | A call signature contains "parameters", which are seperated by commas. You can have as many parameters as you wish. Additionally, remember the parameters are *local* and ONLY available inside the function.             |
+|    ***{...}***                 |  *Main Block*          |  Since the objective of a function is to do something, the main block of your function has *instructions* which are themselves *statements* enclosed by braces (i.e. {} ). These statements are seperated by semicolons (;). |
+|    ***return***             |     *Return*             |   The "return" statement returns a result, such as an object, an array, or even another function back to the caller. The return statement must be in the body of the function. Although it is technically optional, the use of "return" makes it a function and if there is not a return, it is called a *procedure*.             |
+|    ***myFunction();***         |   *Invocation*         |   "calling" the function name allows the function to be used elsewhere in your code. Use the parentheses to call a function. Inside the parentheses, you pass "arguments" which will fit into the slot allocated in the function call signature.            |
 
 <br>
 <br>
 
-## Each part of a function have special considerations.
+## Each part of a function has special quirks and features.
 As mentioned, the example above is of a *function declaration* which is largely the standard layout of a function. However, much of the same information applies to other ways we can declare a function. In addition, each of the components have thier own particular quirks, features, functionalities, etc. There's a LOT quirks and features to consider, but here are some interesting ones to keep in mind:
 
 <br>
@@ -218,6 +218,10 @@ An **Immediately invoked function expression** (or IIFE) is imvoked automaticall
 <br>
 
 # What is hoisting, scope, and scope chain?
+
+<dl>
+<dd>
+
 ***Hoisting*** is the process of moving the FUNCTION DECLARATIONS to the top of the file automatically. 
 
 Hoisting refers to how browsers parse JavaScript. On the first pass, the browser reads through the code once, setting aside space for variables, functions, etc. On the second pass, the browser reads through AGAIN and executes the code. With hoisting, we can call a FUNCTION before it has been defined.
@@ -230,4 +234,46 @@ On the subject of global scope are some of the **negative attributes of global v
 
 ***Scope chain*** refers to the way the JavaScript interpreter determines the value of a variable. First, the interpreter looks locally for the variable. However, if it is not there, then the interpreter will look up the *scope chain* until it reaches *global scope*. One important concept in relation to scope chain is **variable shadowing** which means that if there is a global AND block scope variable, the local block variable will take precedence.
 
+</dd>
+</dl>
 
+<br>
+<br>
+<br>
+<br>
+
+# What are side effects?
+<dl>
+<dd>
+
+A **side effect**  
+
+Take a look at the procedure below. While this bit of code technically will work, this is NOT a function because while there a relationship between the inputs and the outputs, the 
+
+Note that there are NO parameters listed and there is NO return keyword.
+
+```JavaScript
+  function add() {
+    total = num1 + num2;
+  }
+
+  let total;
+  let num1 = 2;
+  let num2 = 3;
+  add()
+  total;
+
+  console.log(total);      // 5
+
+```
+
+
+
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
