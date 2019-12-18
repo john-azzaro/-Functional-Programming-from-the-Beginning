@@ -4,6 +4,8 @@
 * [What is a function?](#What-is-a-function)
 * [How does a function work?](#How-does-a-function-work)
 * [How do you define a function?](#How-do-you-define-a-function)
+* [What is hoisting, scope, and scope chain?](#What-is-hoisting-scope-and-scope-chain)
+* [What are side effects?](#What-are-side-effects)
 * [](#)
 * [](#)
 
@@ -45,7 +47,7 @@
 <br>
 <br>
 
-# What are the four primary parts of a functions
+# How does a function work?
 The best way to explain how a function works is to examine the primary parts of a function first to gain a better understanding of what a function is and what it does. Below we have an example of a *function declaration* (which is one of serveral ways you can define a function) with the core components marked and explained in detail below that. Note that when a function has been defined, you can "call" a function which means you can invoke the function name and pass any "arguments" that are needed to return a result. 
 ```JavaScript
     //FUNCTION KEYWORD        //NAME       //CALL SIGNATURE (W/PARAMETER)
@@ -169,7 +171,7 @@ There are ways a few ways to define a function: ***Named functions (declaration 
 
 <br>
 
-## Named functions are either function declaration or expressions.
+## A function declaration or expressions.
 A **function declaration** is a common way defining a function. Function declarations are hoisted (i.e. how the browser parses JavaScript reading through once and executing on the second pass) with it's contents to the top level. This even applies to function declarations inside a function which would be hoisted to the top. Here's an example of a function declaration:
 ```JavaScript
   function addDeclaration(num1, num2) {
