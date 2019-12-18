@@ -45,10 +45,14 @@
 <br>
 <br>
 
-# How does a function work?
-A function is comprised of: *function keyword, name, callsignature (with or without parameters), a main block of the function (where your code will go) inbetween curly braces.* To call a function, "call" the function name and pass any "arguments" that are needed. 
+# What are the four primary parts of a functions
+A function is comprised of: 
+* Function keyword
+* Name
+* Callsignature (with or without parameters)
+* Main block of the function (where your code will go) inbetween curly braces.
 
-Below we have an example of a *function declaration* (which is one of serveral ways you can define a function) with the core components marked and explained in detail below that.
+Below we have an example of a *function declaration* (which is one of serveral ways you can define a function) with the core components marked and explained in detail below that. Note that when a function has been defined, you can "call" a function which means you can invoke the function name and pass any "arguments" that are needed to return a result. 
 
 <dl>
 <dd>
