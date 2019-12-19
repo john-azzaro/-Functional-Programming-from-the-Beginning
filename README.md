@@ -37,7 +37,7 @@
 <dl>
 <dd>
 
-**A function is a repeatable process or behavior that not only takes some input but returns some output.** A function is *repeatable* (i.e. can be called multiple times) and *determinate* (i.e. predictable). Functions are *modular* and are the fundamental building blocks of JavaScript that perform tasks or calculate values. A function is a semantic relationship between the input and the computed output (i.e. a relationship between what you put in and what you get out).
+**A function is a readable and repeatable process or behavior that not only takes some input but returns some output.** A function is *repeatable* (i.e. can be called multiple times) and *determinate* (i.e. predictable). Functions are *modular* and are the fundamental building blocks of JavaScript that perform tasks or calculate values. A function is a semantic relationship between the input and the computed output (i.e. a relationship between what you put in and what you get out).
 
 </dd>
 </dl>
@@ -286,7 +286,19 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
 <dl>
 <dd>
 
-**A pure function is a determinate function that always returns the same value with no side effects.** For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. Now, you could argue that referencing a ```const``` variable outside a function makes the function itself impure, you could also argue that since it is a *constant* it has a level of permenance to validate a function that uses it as a pure function.
+**A pure function is a determinate function that always returns the same value with no side effects.** For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. Now, you could argue that referencing a ```const``` variable outside a function makes the function itself impure, you could also argue that since it is a *constant* it has a level of permanance to validate a function that uses it as a pure function.
+```JavaScript
+  const outerNum = 3;                // constant variable
+
+  function add(num1, num2) {         // arguably, this is a "pure" function
+    return num1 + num2 + outerNum;   // because "outerNum" is a constant.
+  }
+
+  console.log(add(1,2));             // 6
+```
+
+
+
 
 
 
