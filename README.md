@@ -18,8 +18,10 @@
 <dl>
 <dd>
 
+## Functional programming is a paradigm.
 **Functional programing (FP) is a paradigm where the process of building software by composing pure functions, avoiding shared state, mutable data, and side effects.** Functional programming tends to be *provable*, *concise*, *predicatable*, and *easier to test* than other programming paradigms such as Object Oriented Programming (OOP).
 
+## Functional programming is declaritive.
 **Functional programming is *declarative* in that your code should tell a story.** For example, when you comment on code you need to explain the "why" and not the "what", such as why you have a for-loop iterating over an array rather than saying you have a for-loop which should be obvious.
 
 **In contrast to the declaritve is the *imperative* where the reader of that code somewhere down the line has to read and mentally execute it**. In essence, code being imperiative means inferring from the code to understand what it is doing. In this way, imperative code can be harder to fix and maintain.
@@ -37,6 +39,7 @@
 <dl>
 <dd>
 
+## A function is a repeatable process that takes inputs and returns outputs.
 **A function is a readable and repeatable process or behavior that not only takes some input but returns some output.** A function is *repeatable* (i.e. can be called multiple times) and *determinate* (i.e. predictable). Functions are *modular* and are the fundamental building blocks of JavaScript that perform tasks or calculate values. A function is a semantic relationship between the input and the computed output (i.e. a relationship between what you put in and what you get out).
 
 </dd>
@@ -48,6 +51,8 @@
 <br>
 
 # How does a function work?
+<dl>
+<dd>
 
 ## A function is defined, passed an input, and returns an output when invoked.
 At the heart of a function is the ability to define that function, take an input, and through the contents of your main block of code, return an output that is predictable. To better explain this, lets first look at the primary parts of a function. In the example directly below we have a *function declaration* (which is one of serveral ways you can define a function). In this example, we first add a ```function``` prefiex to define it. Then, we name it and pass in input *parameters*. In the body of the function, we then ```return``` the resulting output. And when we are ready to use this function we "call" a function, which means you can invoke the function name and pass any "arguments" (which directly correlate to the parameter slot in the defined function) which are needed to return a result. 
@@ -61,8 +66,7 @@ At the heart of a function is the ability to define that function, take an input
                     myFunction("Hello!"));            //CALL (W/ARGUMENT)
 ```
 
-<dl>
-<dd>
+<br>
 
 ## There a four primary parts of a function.
 There are FOUR primary parts of a function that you need to be familiar with, specifically: 
@@ -173,8 +177,6 @@ For example, you can acutally nest functions inside another function and call th
 
   console.log(add(1,2)("the sum of num1 and num2"));
 ```
-
-
 
 </dd>
 </dl>
