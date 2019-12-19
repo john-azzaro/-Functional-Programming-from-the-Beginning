@@ -48,7 +48,9 @@
 <br>
 
 # How does a function work?
-The best way to explain how a function works is to examine the primary parts of a function first to gain a better understanding of what a function is and what it does. Below we have an example of a *function declaration* (which is one of serveral ways you can define a function) with the core components marked and explained in detail below that. Note that when a function has been defined, you can "call" a function which means you can invoke the function name and pass any "arguments" that are needed to return a result. 
+
+## A function is defined, passed an input, and returns an output when invoked.
+At the heart of a function is the ability to define that function, take an input, and through the contents of your main block of code, return an output that is predictable. To better explain this, lets first look at the primary parts of a function. In the example directly below we have a *function declaration* (which is one of serveral ways you can define a function). In this example, we first add a ```function``` prefiex to define it. Then, we name it and pass in input *parameters*. In the body of the function, we then ```return``` the resulting output. And when we are ready to use this function we "call" a function, which means you can invoke the function name and pass any "arguments" (which directly correlate to the parameter slot in the defined function) which are needed to return a result. 
 ```JavaScript
     //FUNCTION KEYWORD        //NAME       //CALL SIGNATURE (W/PARAMETER)
     //               \           |         /
@@ -183,10 +185,11 @@ For example, you can acutally nest functions inside another function and call th
 <br>
 
 # How do you define a function?
-There are ways a few ways to define a function: ***Named functions (declaration and expression) and Immediately invoked function expressions.*** 
-
 <dl>
 <dd>
+
+## Functions can be defined as declarations, expressions, or as IIFE's
+There few ways to define a function: **Named functions (declaration and expression) and Immediately invoked function expressions.** Although they each do the same thing, namely defining a function, each does so in a different way or, as in the case of the Immediately Invoked Function Expression, executed in different ways.
 
 <br>
 
@@ -271,9 +274,7 @@ On the subject of global scope are some of the **negative attributes of global v
 <dl>
 <dd>
 
-**A *side effect* is essentially a reference to the potential undesired results of indirect inputs or outputs of a function.** 
-
-## Indirect inputs and outputs lead to side effects.
+## A side effect references the undesired results of indirect input/outputs of a function. 
 For example, take a look at the procedure below. While this bit of code technically will work, this is NOT a function because while there a relationship between the inputs and the outputs, the inputs and the outputs are INDIRECT so it is not a true function even thought there is a semantic relationship between the variables used in the function and the stated variables outside that function. Note that there are NO parameters listed and there is NO return keyword. Simply put, while this does work, there is a lack of security and proveability that makes this a true function.
 ```JavaScript
   function add() {                    // impure function with no parameters passed in.
@@ -311,7 +312,8 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
 <dl>
 <dd>
 
-**A pure function is a determinate function that always returns the same value with no side effects.** For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. 
+## A pure function is a determinate function that always returns the same value with no side effects. 
+For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. 
 ```JavaScript
   function add(num1, num2) {        // example of a pure function
     return num1 + num2;             
