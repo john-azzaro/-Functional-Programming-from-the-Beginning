@@ -157,11 +157,11 @@ Note that you do NOT instantiate the default parameter as a variable.
 
 <br>
 
-## Function and function calls can be used successively.
+## Functions can be nested and called with sets of parentheses.
 <dl>
 <dd>
 
-Functions and function calls can be used in a variety of ways. For example, you can acutally nest functions inside another function and call the function *successively* inside a series of parentheses. Note a few things here. First, a function returns a function (which can return a function etc.). Second, the way we call this function is in the order the parameters are executed (i.e. num1 > num2 > string). When you call the "add" function, you encapsulate each call signature in order.
+For example, you can acutally nest functions inside another function and call the function *successively* inside a series of parentheses. Note a few things here. First, a function returns a function (which can return a function etc.). Second, the way we call this function is in the order the parameters are executed (i.e. num1 > num2 > string). When you call the "add" function, you encapsulate each call signature in order.
 ```JavaScript
   function add(num1, num2) {
     return function addString(string) {
@@ -320,6 +320,9 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
   console.log(add(1,2));            // 3
 ```
 
+## A pure function when given the same input will have the same output.
+A pure function call MUST be predicatable and reliable. In other words, when you give a pure function a given input it will ALWAYS return a given output. So if you have a function that uses something that can be mutated outside the function, then that would NOT be reliable.
+
 ## A function that references an outer const could be considered pure. 
 Now, you could argue that referencing a ```const``` variable outside a function makes the function itself impure, you could also argue that since it is a *constant* it has a level of permanance to validate a function that uses it as a pure function.
 ```JavaScript
@@ -343,6 +346,8 @@ Some pure functions can arguably remain "pure" depending on the amount of surfac
 
   console.log(addMore(1)(2,3));            // 6
 ```
+
+
 
 
 
