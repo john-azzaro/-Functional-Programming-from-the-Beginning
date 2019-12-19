@@ -378,26 +378,33 @@ In the end, you for a function to be pure depends on how confident you are that 
 <br>
 
 ## If functional impurities are unavoidable, extract them.
-There may be cases where an impure function is unavoidable. In these cases you would want to make sure that they are extracted outside so that you can at least have a smaller (yet predictable) pure function. In the example below, we have a function with a productId property which is "impure" because it can change based on the product. In other words, the result of this ```newProduct``` function is not predictable.
+There may be cases where an impure function is unavoidable. In these cases you would want to make sure that they are extracted outside so that you can at least have a smaller (yet predictable) pure function. It should be noted that in most cases, when you need to do this you do not get rid of the impurity but you "extract" it to the outer layers so the side effects are isolated to the outer shell of your code.
+
+For example, in the function below we want to create a new product. However, there is an "impure" part of this function named ```uniqueId```. The ```uniqueId``` property is "impure" because it can change based on the product. In other words, the result of this ```newProduct``` function is not predictable.
 ```JavaScript
   function newProduct(productId, comment) {
     let product = {
-      id: uniqueId(),                        // id is the impurity bc uniqueId changes.
+      id: uniqueId(),                          // id is the impurity bc uniqueId changes per product.
       text: comment
     }
   }
 ```
-However, if you "extract" that part of the function that makes it impure, you increase the level of confidence in the ```newProduct``` function.
+
+To make the function a little bit purer (i.e. more predictable), we need to "extract" that part of the function to the outer parts of our code. When you do this, you increase the level of confidence in the ```newProduct``` function and, should there be any errors or side effects, we know that we can look first at the outer shell first for bugs.
 ```JavaScript
   function newProduct(productId, comment) {
     let product = {
-      id: productId(),     
+      id: productId(),                         //
       text: comment
     }
   }
 
-  let productId = uniqueId();               // the uniqueId part is "extracted".
+  let productId = uniqueId();                 // the uniqueId part is "extracted".
 ```
+
+## If possible, you should always CONTAIN functional impurities.
+
+
 
 
 
