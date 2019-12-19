@@ -87,7 +87,6 @@ There are FOUR primary parts of a function that you need to be familiar with, sp
 |    ***myFunction();***         |   *Invocation*         |   "calling" the function name allows the function to be used elsewhere in your code. Use the parentheses to call a function. Inside the parentheses, you pass "arguments" which will fit into the slot allocated in the function call signature.            |
 
 <br>
-<br>
 
 ## Each part of a function has special quirks and features.
 As mentioned, the example above is of a *function declaration* which is largely the standard layout of a function. However, much of the same information applies to other ways we can declare a function. In addition, each of the components have thier own particular quirks, features, functionalities, etc. There's a LOT quirks and features to consider, but here are some interesting ones to keep in mind:
@@ -256,10 +255,14 @@ On the first pass, the browser reads through the code once, setting aside space 
 
 However, you CANNOT call a function that is defined using FUNCTION EXPRESSION syntax. This is because when the JavaScript engine executes the code, it moves all the function DECLARATIONS to the top. When all the function declarations are 'HOISTED' to the top, we get the term 'hoisting'.
 
+<br>
+
 ## Scope refers to the accessibility of variables in your code.
 ***Scope*** defines how declared variables and functions CAN or CANNOT be accessed at different places in your code. With **Global scope**, the function or variable is available EVERYWHERE in the code. With **Block (local) scope**, a variable is only available within the confines of the function. 
 
 On the subject of global scope are some of the **negative attributes of global variables.** For example, GLOBALS tend to have unintended SIDE EFFECTS. SIDE EFFECTS occur when a local scope variable reaches into global and changes a value there. Side Effects are UNINTENDED since it can change an outside variable to carry out its instructions. And as you now know from the defintion of a function, when this happens, a code is INDETERMINATE. A function should be DETERMINATE, meaning that it should always return the same value and have NO side effects. A function that is determinate is a PURE function.
+
+<br>
 
 ## Scope chain looks up to the global scope.
 ***Scope chain*** refers to the way the JavaScript interpreter determines the value of a variable. First, the interpreter looks locally for the variable. However, if it is not there, then the interpreter will look up the *scope chain* until it reaches *global scope*. One important concept in relation to scope chain is **variable shadowing** which means that if there is a global AND block scope variable, the local block variable will take precedence.
@@ -276,7 +279,7 @@ On the subject of global scope are some of the **negative attributes of global v
 <dl>
 <dd>
 
-## A side effect references the undesired results of indirect input/outputs of a function. 
+## A side effect is the undesired result of indirect inputs/outputs of a function. 
 For example, take a look at the procedure below. While this bit of code technically will work, this is NOT a function because while there a relationship between the inputs and the outputs, the inputs and the outputs are INDIRECT so it is not a true function even thought there is a semantic relationship between the variables used in the function and the stated variables outside that function. Note that there are NO parameters listed and there is NO return keyword. Simply put, while this does work, there is a lack of security and proveability that makes this a true function.
 ```JavaScript
   function add() {                    // impure function with no parameters passed in.
@@ -291,6 +294,8 @@ For example, take a look at the procedure below. While this bit of code technica
 
   console.log(total);                 // 5
 ```
+
+<br>
 
 ## Direct inputs and outputs avoid side effects.
 To make the example above a TRUE function, you need to pass in the inputs (i.e. num1 and num2) and return an output (num1 + num2). When you call the function and assign some arguments that correspond to the parameters of the function, it is DIRECT input semantically tied to DIRECT output. This is a true function. And perhaps the most important part of this is that the function call to get the reliable and predictable result.
@@ -313,9 +318,9 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
 # What is a pure function?
 <dl>
 <dd>
-
-## A pure function is a determinate function that always returns the same value with no side effects. 
-For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. 
+ 
+## A pure function is a determinate function.
+A pure function is a determinate function that always returns the same value with no side effects. For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. 
 ```JavaScript
   function add(num1, num2) {        // example of a pure function
     return num1 + num2;             
@@ -323,6 +328,8 @@ For example, if a function relies on a variable outside itself, it can *mostly* 
 
   console.log(add(1,2));            // 3
 ```
+
+<br>
 
 ## A pure function when given the same input will have the same output.
 A pure function call MUST be predicatable and reliable. In other words, when you give a pure function a given input it will ALWAYS return a given output. So if you have a function that uses something that can be mutated outside the function, then that would NOT be reliable.
@@ -334,6 +341,8 @@ A pure function call MUST be predicatable and reliable. In other words, when you
 
   console.log(generateId());         // output will not be predictable
 ```
+
+<br>
 
 ## A function that references an outer const could be considered pure. 
 Now, you could argue that referencing a ```const``` variable outside a function makes the function itself impure, you could also argue that since it is a *constant* it has a level of permanance to validate a function that uses it as a pure function.
@@ -347,6 +356,8 @@ Now, you could argue that referencing a ```const``` variable outside a function 
   console.log(add(1,2));             // 6
 ```
 
+<br>
+
 ## Readability and surface area can contribute to a "pure" function.
 Some pure functions can arguably remain "pure" depending on the amount of surface area the function has and the readability of the code itself. For example, you could have a nested function within a function and have that nested function reference an input outside of itself. However, that outer referenced variable when added to the arguments of a call can reduce the "surface area" so that the code is readable and obvious to the reader.
 ```JavaScript
@@ -359,17 +370,15 @@ Some pure functions can arguably remain "pure" depending on the amount of surfac
   console.log(addMore(1)(2,3));            // 6
 ```
 
+<br>
+
 ## Functional purity depends on your level of confidence.
 In the end, you for a function to be pure depends on how confident you are that the input for your function will match the output in a predictable way. If you determine that the probablity is high that the resutl will be predictable, then you can most likely label it a pure function. Functional programming requires you to make sure that you have a higher (rather than lower) degree of confidence in the results of your function calls. 
 
+<br>
+
 ## If functional impurities are unavoidable, extract them.
 There may be cases where an impure function is unavoidable. In these cases you would want to make sure that they are extracted outside the pure function and noticable where you could see it and work out that it will not have a predictable outcome so you at least have a function with some level of purity.
-
-
-
-
-
-
 
 </dd>
 </dl>
