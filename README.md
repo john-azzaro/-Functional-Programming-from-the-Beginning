@@ -157,11 +157,11 @@ Note that you do NOT instantiate the default parameter as a variable.
 
 <br>
 
-## Function and function calls can be nested.
+## Function and function calls can be used successively.
 <dl>
 <dd>
 
-Functions and function calls can be used in a variety of ways. For example, you can acutally nest functions inside another function and call those functions with progression of arguments inside parentheses. Note a few things here. First, a function returns a function (which can return a function etc.). Second, the way we call this function is in the order the parameters are executed (i.e. num1 > num2 > string). When you call the "add" function, you encapsulate each call signature in order.
+Functions and function calls can be used in a variety of ways. For example, you can acutally nest functions inside another function and call the function *successively* inside a series of parentheses. Note a few things here. First, a function returns a function (which can return a function etc.). Second, the way we call this function is in the order the parameters are executed (i.e. num1 > num2 > string). When you call the "add" function, you encapsulate each call signature in order.
 ```JavaScript
   function add(num1, num2) {
     return function addString(string) {
@@ -305,7 +305,17 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
 <dl>
 <dd>
 
-**A pure function is a determinate function that always returns the same value with no side effects.** For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. Now, you could argue that referencing a ```const``` variable outside a function makes the function itself impure, you could also argue that since it is a *constant* it has a level of permanance to validate a function that uses it as a pure function.
+**A pure function is a determinate function that always returns the same value with no side effects.** For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. 
+```JavaScript
+  function add(num1, num2) {        // example of a pure function
+    return num1 + num2;             
+  }
+
+  console.log(add(1,2));            // 3
+```
+
+## A function that references an outer const could be considered pure. 
+Now, you could argue that referencing a ```const``` variable outside a function makes the function itself impure, you could also argue that since it is a *constant* it has a level of permanance to validate a function that uses it as a pure function.
 ```JavaScript
   const outerNum = 3;                // constant variable
 
@@ -316,7 +326,7 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
   console.log(add(1,2));             // 6
 ```
 
-## Sometime pure functions can work in grey areas.
+## Readability and surface area can contribute to a "pure" function.
 Some pure functions can arguably remain "pure" depending on the amount of surface area the function has and the readability of the code itself. For example, you could have a nested function within a function and have that nested function reference an input outside of itself. However, that outer referenced variable when added to the arguments of a call can reduce the "surface area" so that the code is readable and obvious to the reader.
 ```JavaScript
   function addMore(num1) {                 // num1 passes in OUTSIDE inner function.
