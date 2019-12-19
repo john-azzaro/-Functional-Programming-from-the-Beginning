@@ -322,6 +322,14 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
 
 ## A pure function when given the same input will have the same output.
 A pure function call MUST be predicatable and reliable. In other words, when you give a pure function a given input it will ALWAYS return a given output. So if you have a function that uses something that can be mutated outside the function, then that would NOT be reliable.
+```JavaScript
+  function generateId() {
+    const id = Math.random();      
+    return id;
+  }
+
+  console.log(generateId());         // output will not be predictable
+```
 
 ## A function that references an outer const could be considered pure. 
 Now, you could argue that referencing a ```const``` variable outside a function makes the function itself impure, you could also argue that since it is a *constant* it has a level of permanance to validate a function that uses it as a pure function.
@@ -346,6 +354,9 @@ Some pure functions can arguably remain "pure" depending on the amount of surfac
 
   console.log(addMore(1)(2,3));            // 6
 ```
+
+## Functional purity depends on your level of confidence.
+In the end, you for a function to be pure depends on how confident you are that the input for your function will match the output in a predictable way. If you determine that the probablity is high that the resutl will be predictable, then you can most likely label it a pure function. Functional programming requires you to make sure that you have a higher (rather than lower) degree of confidence in the results of your function calls.
 
 
 
