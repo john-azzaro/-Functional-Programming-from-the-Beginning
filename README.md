@@ -378,7 +378,28 @@ In the end, you for a function to be pure depends on how confident you are that 
 <br>
 
 ## If functional impurities are unavoidable, extract them.
-There may be cases where an impure function is unavoidable. In these cases you would want to make sure that they are extracted outside the pure function and noticable where you could see it and work out that it will not have a predictable outcome so you at least have a function with some level of purity.
+There may be cases where an impure function is unavoidable. In these cases you would want to make sure that they are extracted outside so that you can at least have a smaller (yet predictable) pure function. In the example below, we have a function with a productId property which is "impure" because it can change based on the product. In other words, the result of this ```newProduct``` function is not predictable.
+```JavaScript
+  function newProduct(productId, comment) {
+    let product = {
+      id: uniqueId(),                        // id is the impurity bc uniqueId changes.
+      text: comment
+    }
+  }
+```
+However, if you "extract" that part of the function that makes it impure, you increase the level of confidence in the ```newProduct``` function.
+```JavaScript
+  function newProduct(productId, comment) {
+    let product = {
+      id: productId(),     
+      text: comment
+    }
+  }
+
+  let productId = uniqueId();               // the uniqueId part is "extracted".
+```
+
+
 
 </dd>
 </dl>
