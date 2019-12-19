@@ -232,7 +232,7 @@ However, you CANNOT call a function that is defined using FUNCTION EXPRESSION sy
 
 ***Scope*** defines how declared variables and functions CAN or CANNOT be accessed at different places in your code. With **Global scope**, the function or variable is available EVERYWHERE in the code. With **Block (local) scope**, a variable is only available within the confines of the function. 
 
-On the subject of global scope are some of the **negative attributes of global variables.** For example, GLOBALS tend to have unintended SIDE EFFECTS. SIDE EFFECTS occur when a local scope variable reaches into global and changes a value there. Side Effects are UNINTENDED since it can change an outside variable to carry out its instructions. When this happens, a code is INDETERMINATE. A function should be DETERMINATE, meaning that it should always return the same value and have NO side effects. A function that is determinate is a PURE function.
+On the subject of global scope are some of the **negative attributes of global variables.** For example, GLOBALS tend to have unintended SIDE EFFECTS. SIDE EFFECTS occur when a local scope variable reaches into global and changes a value there. Side Effects are UNINTENDED since it can change an outside variable to carry out its instructions. And as you now know from the defintion of a function, when this happens, a code is INDETERMINATE. A function should be DETERMINATE, meaning that it should always return the same value and have NO side effects. A function that is determinate is a PURE function.
 
 ***Scope chain*** refers to the way the JavaScript interpreter determines the value of a variable. First, the interpreter looks locally for the variable. However, if it is not there, then the interpreter will look up the *scope chain* until it reaches *global scope*. One important concept in relation to scope chain is **variable shadowing** which means that if there is a global AND block scope variable, the local block variable will take precedence.
 
@@ -252,8 +252,8 @@ On the subject of global scope are some of the **negative attributes of global v
 
 For example, take a look at the procedure below. While this bit of code technically will work, this is NOT a function because while there a relationship between the inputs and the outputs, the inputs and the outpits are INDIRECT so it is not a true function even thought there is a semantic relationship between the variables used in the function and the stated variables outside that function. Note that there are NO parameters listed and there is NO return keyword. Simply put, while this does work, there is a lack of security and proveability that makes this a true function.
 ```JavaScript
-  function add() {                    // no parameters passed in.
-    total = num1 + num2;
+  function add() {                    // impure function with no parameters passed in.
+    total = num1 + num2;              // ... and outside variables are still referenced.
   }
 
   let total; 
@@ -273,6 +273,24 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
 
   console.log(add(2, 3));             // 5 from a viable function call.
 ```
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
+
+# What is a pure function?
+<dl>
+<dd>
+
+**A pure function is a determinate function that always returns the same value with no side effects.** For example, if a function
+
+
+
+
 
 </dd>
 </dl>
