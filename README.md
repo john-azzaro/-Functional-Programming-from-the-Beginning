@@ -286,7 +286,7 @@ To make the example above a TRUE function, you need to pass in the inputs (i.e. 
 <dl>
 <dd>
 
-**A pure function is a determinate function that always returns the same value with no side effects.** For example, if a function
+**A pure function is a determinate function that always returns the same value with no side effects.** For example, if a function relies on a variable outside itself, it can *mostly* be considered an *impure* function because that variable is subject to change. Now, you could argue that referencing a ```const``` variable outside a function makes the function itself impure, you could also argue that since it is a *constant* it has a level of permenance to validate a function that uses it as a pure function.
 
 
 
