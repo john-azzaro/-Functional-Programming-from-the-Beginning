@@ -190,7 +190,7 @@ There are ways a few ways to define a function: ***Named functions (declaration 
 
 <br>
 
-## A function declaration or expressions.
+## A function declaration is hoisted.
 A **function declaration** is a common way defining a function. Function declarations are hoisted (i.e. how the browser parses JavaScript reading through once and executing on the second pass) with it's contents to the top level. This even applies to function declarations inside a function which would be hoisted to the top. Here's an example of a function declaration:
 ```JavaScript
   function addDeclaration(num1, num2) {
@@ -199,6 +199,7 @@ A **function declaration** is a common way defining a function. Function declara
 ```
 <br>
 
+## A function expression is NOT hoisted.
 A **function expression** (or "definition expression" or "function literal") is a JavaScript pattern that lets you create a variable and execute it as a function. As a variable, a function expression can be set to a number, a string, an object, or even a function. Unlike a function declaration, function expressions are NOT hoisted with contents, but the reference to it may be hoisted if we assign it as a variable and you can use it everywhere a variable can go. Note that because of an issue with hoisting, if you invoke a function expression before the function itself, you will get an error. Also note that since a function expression is a variable (or if it is a const), we need to terminate the function with a semi-colon.
 ```JavaScript
   let addExpression = function(num1, num2) {
@@ -243,16 +244,19 @@ An **Immediately invoked function expression** (or IIFE) is imvoked automaticall
 <dl>
 <dd>
 
+## Hoisting refers to how browsers parse JavaScript. 
 ***Hoisting*** is the process of moving the FUNCTION DECLARATIONS to the top of the file automatically. 
 
-Hoisting refers to how browsers parse JavaScript. On the first pass, the browser reads through the code once, setting aside space for variables, functions, etc. On the second pass, the browser reads through AGAIN and executes the code. With hoisting, we can call a FUNCTION before it has been defined.
+On the first pass, the browser reads through the code once, setting aside space for variables, functions, etc. On the second pass, the browser reads through AGAIN and executes the code. With hoisting, we can call a FUNCTION before it has been defined.
 
 However, you CANNOT call a function that is defined using FUNCTION EXPRESSION syntax. This is because when the JavaScript engine executes the code, it moves all the function DECLARATIONS to the top. When all the function declarations are 'HOISTED' to the top, we get the term 'hoisting'.
 
+## Scope refers to the accessibility of variables in your code.
 ***Scope*** defines how declared variables and functions CAN or CANNOT be accessed at different places in your code. With **Global scope**, the function or variable is available EVERYWHERE in the code. With **Block (local) scope**, a variable is only available within the confines of the function. 
 
 On the subject of global scope are some of the **negative attributes of global variables.** For example, GLOBALS tend to have unintended SIDE EFFECTS. SIDE EFFECTS occur when a local scope variable reaches into global and changes a value there. Side Effects are UNINTENDED since it can change an outside variable to carry out its instructions. And as you now know from the defintion of a function, when this happens, a code is INDETERMINATE. A function should be DETERMINATE, meaning that it should always return the same value and have NO side effects. A function that is determinate is a PURE function.
 
+## Scope chain looks up to the global scope.
 ***Scope chain*** refers to the way the JavaScript interpreter determines the value of a variable. First, the interpreter looks locally for the variable. However, if it is not there, then the interpreter will look up the *scope chain* until it reaches *global scope*. One important concept in relation to scope chain is **variable shadowing** which means that if there is a global AND block scope variable, the local block variable will take precedence.
 
 </dd>
@@ -269,7 +273,8 @@ On the subject of global scope are some of the **negative attributes of global v
 
 **A *side effect* is essentially a reference to the potential undesired results of indirect inputs or outputs of a function.** 
 
-For example, take a look at the procedure below. While this bit of code technically will work, this is NOT a function because while there a relationship between the inputs and the outputs, the inputs and the outpits are INDIRECT so it is not a true function even thought there is a semantic relationship between the variables used in the function and the stated variables outside that function. Note that there are NO parameters listed and there is NO return keyword. Simply put, while this does work, there is a lack of security and proveability that makes this a true function.
+## Indirect inputs and outputs lead to side effects.
+For example, take a look at the procedure below. While this bit of code technically will work, this is NOT a function because while there a relationship between the inputs and the outputs, the inputs and the outputs are INDIRECT so it is not a true function even thought there is a semantic relationship between the variables used in the function and the stated variables outside that function. Note that there are NO parameters listed and there is NO return keyword. Simply put, while this does work, there is a lack of security and proveability that makes this a true function.
 ```JavaScript
   function add() {                    // impure function with no parameters passed in.
     total = num1 + num2;              // ... and outside variables are still referenced.
@@ -284,6 +289,7 @@ For example, take a look at the procedure below. While this bit of code technica
   console.log(total);                 // 5
 ```
 
+## Direct inputs and outputs avoid side effects.
 To make the example above a TRUE function, you need to pass in the inputs (i.e. num1 and num2) and return an output (num1 + num2). When you call the function and assign some arguments that correspond to the parameters of the function, it is DIRECT input semantically tied to DIRECT output. This is a true function. And perhaps the most important part of this is that the function call to get the reliable and predictable result.
 ```JavaScript
   function add(num1, num2) {          // Direct input.
