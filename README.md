@@ -356,7 +356,10 @@ Some pure functions can arguably remain "pure" depending on the amount of surfac
 ```
 
 ## Functional purity depends on your level of confidence.
-In the end, you for a function to be pure depends on how confident you are that the input for your function will match the output in a predictable way. If you determine that the probablity is high that the resutl will be predictable, then you can most likely label it a pure function. Functional programming requires you to make sure that you have a higher (rather than lower) degree of confidence in the results of your function calls.
+In the end, you for a function to be pure depends on how confident you are that the input for your function will match the output in a predictable way. If you determine that the probablity is high that the resutl will be predictable, then you can most likely label it a pure function. Functional programming requires you to make sure that you have a higher (rather than lower) degree of confidence in the results of your function calls. 
+
+## If functional impurities are unavoidable, extract them.
+There may be cases where an impure function is unavoidable. In these cases you would want to make sure that they are extracted outside the pure function and noticable where you could see it and work out that it will not have a predictable outcome so you at least have a function with some level of purity.
 
 
 
