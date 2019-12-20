@@ -404,10 +404,27 @@ To make the function a little bit purer (i.e. more predictable), we need to "ext
 
 <br>
 
-## If possible, you should always CONTAIN functional impurities.
-In the event that you identify an impurity in your code, you can contain the impurity such that it does not effect other parts of your application. One way to contain functional impurities is to *contain* the impurity by ***wrapping*** a function around it. In this way, you can contain the effects to a single function call.
+## Contain function impurities by WRAPPING a function around it.
+In the event that you identify an impurity in your code, you can contain the impurity such that it does not effect other parts of your application. One way to contain functional impurities is to *contain* the impurity by ***wrapping*** a function around it. In this way, you can contain the effects to a single function call. In the example below we have an array of books on cars. The current function we have will modify the books array by sorting alphabetically by title. However, this is 
 ```JavaScript
+let books = [
+  { id: 1, title: "Fixing Old Cars"},
+  { id: 2, title: "Selling New SUVs"},
+  { id: 3, title: "Buying New Sports Cars"},
+];
 
+function sortBooksByName() {
+  books.sort(function byTitle( title1, title2) {
+    if (title1.title < title2.title) {
+      return -1;
+    } else if (title1.title > title2.title) {
+      return 1;
+    }
+  });
+  return books;
+}
+
+console.log(sortBooksByName()); 
 ```
 
 
