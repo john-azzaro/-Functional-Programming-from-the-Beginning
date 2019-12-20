@@ -460,7 +460,7 @@ Since we already have ```sortBooksByName```, we "wrap" another function around i
 ------
 Since the objective here is to preserve the integrity of the outer variable (i.e. ```books```), what we want to do is create a copy and store it locally so that we keep the impurity within the wrapped function. And when we call the wrapped function ```sortBooksByName```, which although producing a side effect will only do so to the local copy and not the outer variable.
 ```JavaScript
-function getBooksByName(books) {                         // wrapper function...
+function getBooksByName(books) {                         
   books = books.slice();                                 // local copy of "books".
   return sortBooksByName();                              // call sortsBookByName.
 
@@ -492,6 +492,23 @@ console.log(books);                                  /* [ { id: 1, title: 'Fixin
 </dl>
 </dd>
 </dl>
+
+## Or use an adapter to modify the orginal and set back again.
+When you use an adapter, you are effectively using a brute force method to maintain function purity. In the example below, we first create copies of the original books variable from outside the function and the local copy of books for inside our adapter. Then, we run the ```sortBooksByName``` so we can finally get the newly ordered book list. Then, we restore the original order back to the original outside ```books``` variable. And last, we can now return ```newBooks```.
+```JavaScript
+  function getBooksByName() {
+    let originalBooks = books.slice();            // create a backup copy of the books array.
+    books = originalBooks.slice();                // create a backup copy of the initial state of books.
+    let newBooks = sortBooksByName();             // newly modified and ordered books.
+    books = orginalBooks;                         // Then restore the original book order.
+    return newBooks;                              // and lastly, return the newBooks which was reordered.
+  }
+```
+
+
+
+
+
 
 </dd>
 </dl>
