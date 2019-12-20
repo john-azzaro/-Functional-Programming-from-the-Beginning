@@ -93,6 +93,24 @@ As mentioned, the example above is of a *function declaration* which is largely 
 
 <br>
 
+## All functions in JavaScript are "variadic".
+<dl>
+<dd>
+
+All functions in JavaScript are ***variadic***, meaning that no matter how many parameters are declared, you can pass as many or as few as you want. In the example, below, if you pass in 3 arguments to a function that expects only 1, you only get one back as a result.
+```JavaScript
+  function variadicExample(item1) {       // 1 defined parameter.
+    return item1;
+  }
+
+  console.log(variadicExample(1,2,3))     // 1 (from 3 arguments passed in). 
+```
+
+</dd>
+</dl>
+
+<br>
+
 ## If a function does not return something, it is a procedure.
 <dl>
 <dd>
@@ -179,6 +197,28 @@ For example, you can acutally nest functions inside another function and call th
 
 </dd>
 </dl>
+
+<br>
+
+## Functions that return functions are "High-order" functions.
+<dl>
+<dd>
+
+A ***high-order function*** is a function that recieves as its inputs one or more functions and/or returns one or more function. In order, if the *values* coming in and/or coming out of a function is a function, then that function itself it a *high-order function*. A function that does NOT receive or return a function is called a *single order function*.
+```JavaScript
+  function add(fn) {
+    return function addition(arg) {
+      return fn(arg);
+    };
+  }
+```
+
+</dd>
+</dl>
+
+
+
+
 
 <br>
 <br>
@@ -530,6 +570,8 @@ To reiterate what was briefly touched on in "How a function works", an ***argume
   add(2,3);                     // 2 and 3 are the ARGUMENTS.
 ```
 
+<br>
+
 ## Function programming mostly involve unary and binary inputs.
 The shape of a function is defined by the number and kinds of things passed into and the number and kinds of thingsthat come out of it. In the case of functional programming, most would prefer to use a *unary* function that uses only a single input and then *binary* inputs that use only two inputs. Why? Simply put, the more inputs you have with a function, the harder it is to have them work with other functions.
 
@@ -554,6 +596,14 @@ A ***n-ary function*** takes more than two inputs.
   }
 ```
 
+## If you 
+
+
+
+
+
+
+
 </dl>
 </dd>
 
@@ -561,3 +611,8 @@ A ***n-ary function*** takes more than two inputs.
 <br>
 <br>
 <br>
+
+
+
+## Higher-order functions 
+
