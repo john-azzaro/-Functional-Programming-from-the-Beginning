@@ -439,21 +439,22 @@ In the example below we have an array of books on cars. The current function we 
 <dd>
 
 ### First, wrap your existing impure function in a pure function.
-Since we already have ```sortBooksByName```, we can "wrap" another function around it and contain the impurity.
+Since we already have ```sortBooksByName```, we "wrap" another function around it and contain the impurity. To do this, we first need to wrap another function called ```getBooksByName``` around ```sortBooksByName``` and pass in ```books``` as a parameters. By doing this, we contain the impurity so it does not leak out into the rest of the scope.
 ```JavaScript
   
-  function 
-
-  function sortBooksByName() {
-    books.sort(function byTitle( title1, title2) {
-      if (title1.title < title2.title) {
-        return -1;
-      } else if (title1.title > title2.title) {
-        return 1;
+  function getBooksByName(books) {                         // wrapper function passing in existing variable.
+      function sortBooksByName() {                         // insulated impure function.
+        books.sort(function byTitle( title1, title2) {
+          if (title1.title < title2.title) {
+            return -1;
+          } else if (title1.title > title2.title) {
+            return 1;
+          }
+        });
+        return books;
       }
-    });
-    return books;
   }
+
 ```
 
 </dd>
