@@ -547,15 +547,15 @@ A ***binary function*** takes **two values** in and a **single value out**.
   }
 ```
 
-For functions that take more than two inputs, you would call them ***n-ary functions***.
+A ***n-ary function*** takes more than two inputs.
 ```JavaScript
   function add(num1, num2, num3, num4) {
     return num1 + num2 + num3 + num4;
   }
 ```
 
-<dl>
-<dd>
+</dl>
+</dd>
 
 <br>
 <br>
