@@ -99,11 +99,11 @@ As mentioned, the example above is of a *function declaration* which is largely 
 
 All functions in JavaScript are ***variadic***, meaning that no matter how many parameters are declared, you can pass as many or as few as you want. In the example, below, if you pass in 3 arguments to a function that expects only 1, you only get one back as a result.
 ```JavaScript
-  function variadicExample(item1) {       // 1 defined parameter.
+  function variadicExample(item1) {              // 1 defined parameter.
     return item1;
   }
 
-  console.log(variadicExample(1,2,3))     // 1 (from 3 arguments passed in). 
+  console.log(variadicExample(1,2,3))            // 1 (from 3 arguments passed in). 
 ```
 
 </dd>
@@ -115,9 +115,7 @@ All functions in JavaScript are ***variadic***, meaning that no matter how many 
 <dl>
 <dd>
 
-**If a function does not RETURN something, it is a procedure.** 
-
-In the context of functional programming, keep in mind that just because a function has a function keyword doesnt mean it can maintain itself as a function. In other words, any function that calls a procedure CANNOT be called a function... it becomes a procedure as well. This is important in order to take advantage of function programming.
+**If a function does not RETURN something, it is a procedure.** In the context of functional programming, keep in mind that just because a function has a function keyword doesnt mean it can maintain itself as a function. In other words, any function that calls a procedure CANNOT be called a function... it becomes a procedure as well. This is important in order to take advantage of function programming.
 ```JavaScript
   function addNumbers(a = 0, b = 0, c = 0) {     // Does not RETURN, is procedural.
     let total = a + b + c;
@@ -577,26 +575,43 @@ The shape of a function is defined by the number and kinds of things passed into
 
 A ***unary function*** takes a **single value** in and a **single value out**.
 ```JavaScript
-  function add(num1) {         // This is a unary function (single input).
+  function add(num1) {                        // This is a unary function (single input).
     return 5 + num1;
   }
 ```
 
 A ***binary function*** takes **two values** in and a **single value out**.
 ```JavaScript
-  function add(num1, num2) {   // This is a binary function (two inputs).
+  function add(num1, num2) {                  // This is a binary function (two inputs).
     return num1 + num2;
   }
 ```
 
 A ***n-ary function*** takes more than two inputs.
 ```JavaScript
-  function add(num1, num2, num3, num4) {
+  function add(num1, num2, num3, num4) {     // This is a n-ary function (more than 2).
     return num1 + num2 + num3 + num4;
   }
 ```
 
-## If you 
+<br>
+
+## A High-order function 
+
+
+
+<br>
+
+## Unary and binary inputs adapt the shape of a function.
+Since JavaScript functions are *variadic*, meaning that no matter how many parameters you declare, you can pass as many or as few as you want, you can **adapt the shape** of a function. For example, if you invoke a function with 3 arguments but the function is binary (meaning, it takes in two values), the orginal function invocation is *n-ary* and was reduced to *binary* thus changing it's *shape*.
+```JavaScript
+  function add(num1) {            // This function adapts the arguments to 1 parameter.
+    return num1;
+  }
+
+  console.log(add(1,2,3))         // 1
+```
+
 
 
 
