@@ -433,6 +433,10 @@ In the example below we have an array of books on cars. The current function we 
 
 <dl>
 <dd>
+<dl>
+<dd>
+<dl>
+<dd>
 
 ### First, wrap your existing impure function in a pure function.
 Since we already have ```sortBooksByName```, we can "wrap" another function around it and contain the impurity.
@@ -451,6 +455,13 @@ Since we already have ```sortBooksByName```, we can "wrap" another function arou
     return books;
   }
 ```
+
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
 
 </dd>
 </dl>
