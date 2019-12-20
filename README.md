@@ -443,7 +443,7 @@ In the example below we have an array of books on cars. The current function we 
 Since we already have ```sortBooksByName```, we "wrap" another function around it and contain the impurity. To do this, we first need to wrap another function called ```getBooksByName``` around ```sortBooksByName``` and pass in ```books``` as a parameters. By doing this, we contain the impurity so it does not leak out into the rest of the scope.
 ```JavaScript
   function getBooksByName(books) {                         // wrapper function.
-      function sortBooksByName() {                         // insulated impure function.
+      function sortBooksByName() {                         
         books.sort(function byTitle( title1, title2) {
           if (title1.title < title2.title) {
             return -1;
@@ -458,22 +458,32 @@ Since we already have ```sortBooksByName```, we "wrap" another function around i
 
 ### Second, make a local copy of your variable 
 ------
-Since the objective here is to preserve the integrity of the outer variable (i.e. ```books```), what we want to do is create a copy and store it locally so that we keep the impurity within the wrapped function.
+Since the objective here is to preserve the integrity of the outer variable (i.e. ```books```), what we want to do is create a copy and store it locally so that we keep the impurity within the wrapped function. And when we call the wrapped function ```sortBooksByName```, which although producing a side effect will only do so to the local copy and not the outer variable.
 ```JavaScript
-  function getBooksByName(books) { 
-    books = students.slice();                              // local copy of "books".
+function getBooksByName(books) {                         // wrapper function...
+  books = books.slice();                                 // local copy of "books".
+  return sortBooksByName();                              // call sortsBookByName.
 
-    function sortBooksByName() { 
-       books.sort(function byTitle( title1, title2) {
-         if (title1.title < title2.title) {
-           return -1;
-         } else if (title1.title > title2.title) {
-           return 1;
-         }
-       });
-       return books;
-     }
-  }
+  function sortBooksByName() { 
+     books.sort(function byTitle( title1, title2) {
+       if (title1.title < title2.title) {
+         return -1;
+       } else if (title1.title > title2.title) {
+         return 1;
+       }
+     });
+     return books;
+   }
+}
+                                                     // Output of wrapped function:
+console.log(getBooksByName(books));                  /* [ { id: 3, title: 'Buying New Sports Cars' },
+                                                          { id: 1, title: 'Fixing Old Cars' },
+                                                          { id: 2, title: 'Selling New SUVs' } ]*/
+
+                                                     // Output of global variable:
+console.log(books);                                  /* [ { id: 1, title: 'Fixing Old Cars' },
+                                                          { id: 2, title: 'Selling New SUVs' },
+                                                          { id: 3, title: 'Buying New Sports Cars' } ]*/
 ```
 
 </dd>
