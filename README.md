@@ -118,7 +118,7 @@ In the context of functional programming, keep in mind that just because a funct
 
 <br>
 
-## Pass "parameters"into a function and "arguments" into it's invocation.
+## Pass "parameters" into a function and "arguments" into it's invocation.
 <dl>
 <dd>
 
@@ -438,6 +438,7 @@ In the example below we have an array of books on cars. The current function we 
 <dl>
 <dd>
 
+------
 ### First, wrap your existing impure function in a pure function.
 ------
 Since we already have ```sortBooksByName```, we "wrap" another function around it and contain the impurity. To do this, we first need to wrap another function called ```getBooksByName``` around ```sortBooksByName``` and pass in ```books``` as a parameters. By doing this, we contain the impurity so it does not leak out into the rest of the scope.
@@ -455,7 +456,7 @@ Since we already have ```sortBooksByName```, we "wrap" another function around i
       }
   }
 ```
-
+------
 ### Second, make a local copy of your variable 
 ------
 Since the objective here is to preserve the integrity of the outer variable (i.e. ```books```), what we want to do is create a copy and store it locally so that we keep the impurity within the wrapped function. And when we call the wrapped function ```sortBooksByName```, which although producing a side effect will only do so to the local copy and not the outer variable.
@@ -475,15 +476,15 @@ function getBooksByName(books) {
      return books;
    }
 }
-                                                     // Output of wrapped function:
-console.log(getBooksByName(books));                  /* [ { id: 3, title: 'Buying New Sports Cars' },
-                                                          { id: 1, title: 'Fixing Old Cars' },
-                                                          { id: 2, title: 'Selling New SUVs' } ]*/
+                                      // Output of wrapped function:
+console.log(getBooksByName(books));   /* [ { id: 3, title: 'Buying New Sports Cars' },
+                                           { id: 1, title: 'Fixing Old Cars' },
+                                           { id: 2, title: 'Selling New SUVs' } ]  */
 
-                                                     // Output of global variable:
-console.log(books);                                  /* [ { id: 1, title: 'Fixing Old Cars' },
-                                                          { id: 2, title: 'Selling New SUVs' },
-                                                          { id: 3, title: 'Buying New Sports Cars' } ]*/
+                                      // Output of global variable:
+console.log(books);                   /* [ { id: 1, title: 'Fixing Old Cars' },
+                                           { id: 2, title: 'Selling New SUVs' },
+                                           { id: 3, title: 'Buying New Sports Cars' } ]*/
 ```
 
 </dd>
@@ -492,6 +493,8 @@ console.log(books);                                  /* [ { id: 1, title: 'Fixin
 </dl>
 </dd>
 </dl>
+
+<br>
 
 ## Or use an adapter to modify the orginal and set back again.
 When you use an adapter, you are effectively using a brute force method to maintain function purity. In the example below, we first create copies of the original books variable from outside the function and the local copy of books for inside our adapter. Then, we run the ```sortBooksByName``` so we can finally get the newly ordered book list. Then, we restore the original order back to the original outside ```books``` variable. And last, we can now return ```newBooks```.
@@ -505,13 +508,48 @@ When you use an adapter, you are effectively using a brute force method to maint
   }
 ```
 
+<dl>
+<dd>
+
+<br>
+<br>
+<br>
+<br>
+
+# What are arguments?
+<dl>
+<dd>
+
+## An argument is value passed as a parameter to a function.
+To reiterate what was briefly touched on in "How a function works", an ***argument*** is a value that is passed into a function defintiion's *parameters*.
+```JavaScript
+  function add(num1, num2) {    // 2 and 3 are passed into the call signature as PARAMETERS
+    return num1 + num2;
+  }
+
+  add(2,3);                     // 2 and 3 are the ARGUMENTS.
+```
+
+## Function programming mostly involve unary and binary
+The shape of a function is defined by the number and kinds of things passed into and the number and kinds of thingsthat come out of it.
+
+A ***unary*** function takes a **single value** in and a **single value out**.
+```JavaScript
+  function add(num1) {         // This is a unary function (single parameter).
+    return 5 + num1;
+  }
+```
+
+A ***binary*** function takes **two values** in and a **single value out**.
+```JavaScript
+  function add(num1, num2) {   // This is a binary function (two parameters).
+    return num1 + num2;
+  }
+```
 
 
-
-
-
-</dd>
-</dl>
+<dl>
+<dd>
 
 <br>
 <br>
