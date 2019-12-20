@@ -530,23 +530,29 @@ To reiterate what was briefly touched on in "How a function works", an ***argume
   add(2,3);                     // 2 and 3 are the ARGUMENTS.
 ```
 
-## Function programming mostly involve unary and binary
-The shape of a function is defined by the number and kinds of things passed into and the number and kinds of thingsthat come out of it.
+## Function programming mostly involve unary and binary inputs.
+The shape of a function is defined by the number and kinds of things passed into and the number and kinds of thingsthat come out of it. In the case of functional programming, most would prefer to use a *unary* function that uses only a single input and then *binary* inputs that use only two inputs. Why? Simply put, the more inputs you have with a function, the harder it is to have them work with other functions.
 
-A ***unary*** function takes a **single value** in and a **single value out**.
+A ***unary function*** takes a **single value** in and a **single value out**.
 ```JavaScript
-  function add(num1) {         // This is a unary function (single parameter).
+  function add(num1) {         // This is a unary function (single input).
     return 5 + num1;
   }
 ```
 
-A ***binary*** function takes **two values** in and a **single value out**.
+A ***binary function*** takes **two values** in and a **single value out**.
 ```JavaScript
-  function add(num1, num2) {   // This is a binary function (two parameters).
+  function add(num1, num2) {   // This is a binary function (two inputs).
     return num1 + num2;
   }
 ```
 
+For functions that take more than two inputs, you would call them ***n-ary functions***.
+```JavaScript
+  function add(num1, num2, num3, num4) {
+    return num1 + num2 + num3 + num4;
+  }
+```
 
 <dl>
 <dd>
