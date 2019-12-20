@@ -402,8 +402,13 @@ To make the function a little bit purer (i.e. more predictable), we need to "ext
   let productId = uniqueId();                 // the uniqueId part is "extracted".
 ```
 
-## If possible, you should always CONTAIN functional impurities.
+<br>
 
+## If possible, you should always CONTAIN functional impurities.
+In the event that you identify an impurity in your code, you can contain the impurity such that it does not effect other parts of your application. One way to contain functional impurities is to *contain* the impurity by ***wrapping*** a function around it. In this way, you can contain the effects to a single function call.
+```JavaScript
+
+```
 
 
 
