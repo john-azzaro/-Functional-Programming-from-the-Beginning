@@ -405,30 +405,52 @@ To make the function a little bit purer (i.e. more predictable), we need to "ext
 <br>
 
 ## Contain function impurities by WRAPPING a function around it.
-In the event that you identify an impurity in your code, you can contain the impurity such that it does not effect other parts of your application. One way to contain functional impurities is to *contain* the impurity by ***wrapping*** a function around it. In this way, you can contain the effects to a single function call. In the example below we have an array of books on cars. The current function we have will modify the books array by sorting alphabetically by title. However, this is 
+In the event that you identify an impurity in your code, you can contain the impurity such that it does not effect other parts of your application. One way to contain functional impurities is to *contain* the impurity by ***wrapping*** a function around it. In this way, you can contain the effects to a single function call. 
+
+In the example below we have an array of books on cars. The current function we have will modify the books array by sorting alphabetically by title. However, **this is an impure function because ```sortBooksByName``` modifies the ```books``` variable which is outside itself.** In other words, we want a way to contain the modifications to the function itself so that we DO NOT modify the orginal ```books``` array.
 ```JavaScript
-let books = [
-  { id: 1, title: "Fixing Old Cars"},
-  { id: 2, title: "Selling New SUVs"},
-  { id: 3, title: "Buying New Sports Cars"},
-];
+  let books = [                                         // original variable
+    { id: 1, title: "Fixing Old Cars"},
+    { id: 2, title: "Selling New SUVs"},
+    { id: 3, title: "Buying New Sports Cars"},
+  ];
 
-function sortBooksByName() {
-  books.sort(function byTitle( title1, title2) {
-    if (title1.title < title2.title) {
-      return -1;
-    } else if (title1.title > title2.title) {
-      return 1;
-    }
-  });
-  return books;
-}
+  function sortBooksByName() {                          // sorts books by name
+    books.sort(function byTitle( title1, title2) {
+      if (title1.title < title2.title) {
+        return -1;
+      } else if (title1.title > title2.title) {
+        return 1;
+      }
+    });
+    return books;
+  }
 
-console.log(sortBooksByName()); 
+  console.log(sortBooksByName());   /* [  { id: 3, title: 'Buying New Sports Cars' },
+                                          { id: 1, title: 'Fixing Old Cars' },
+                                          { id: 2, title: 'Selling New SUVs' } ]       */
 ```
 
+<dl>
+<dd>
 
+### First, wrap your existing impure function in a pure function.
+Since we already have ```sortBooksByName```, we can "wrap" another function around it and contain the impurity.
+```JavaScript
+  
+  function 
 
+  function sortBooksByName() {
+    books.sort(function byTitle( title1, title2) {
+      if (title1.title < title2.title) {
+        return -1;
+      } else if (title1.title > title2.title) {
+        return 1;
+      }
+    });
+    return books;
+  }
+```
 
 </dd>
 </dl>

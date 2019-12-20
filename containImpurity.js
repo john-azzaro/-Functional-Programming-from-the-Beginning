@@ -17,7 +17,9 @@ function sortBooksByName() {
   return books;
 }
 
-console.log(sortBooksByName());
+console.log(sortBooksByName());   /* [  { id: 3, title: 'Buying New Sports Cars' },
+                                        { id: 1, title: 'Fixing Old Cars' },
+                                        { id: 2, title: 'Selling New SUVs' } ]       */
 
 
 
