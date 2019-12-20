@@ -546,8 +546,8 @@ When you use an adapter, you are effectively using a brute force method to maint
   }
 ```
 
-<dl>
-<dd>
+</dl>
+</dd>
 
 <br>
 <br>
@@ -593,26 +593,45 @@ A ***n-ary function*** takes more than two inputs.
     return num1 + num2 + num3 + num4;
   }
 ```
+</dl>
+</dd>
 
 <br>
-
-## A High-order function 
-
-
-
+<br>
+<br>
 <br>
 
-## Unary and binary inputs adapt the shape of a function.
-Since JavaScript functions are *variadic*, meaning that no matter how many parameters you declare, you can pass as many or as few as you want, you can **adapt the shape** of a function. For example, if you invoke a function with 3 arguments but the function is binary (meaning, it takes in two values), the orginal function invocation is *n-ary* and was reduced to *binary* thus changing it's *shape*.
+# What are adapters?
+<dl>
+<dd>
+
+## Adapters "adapt" the shape of a function.
+Since JavaScript functions are *variadic*, meaning that no matter how many parameters you declare, you can pass as many or as few as you want, you can **adapt the shape** of a function. In otherwords, you have two pieces that do not fit and you need an adapter to make them fit.
+
+To make an adapter, you need to create a *high-order function*. For example, if you invoke a function with 3 arguments but the function is binary (meaning, it takes in two values), the orginal function invocation is *n-ary* and was reduced to *binary* thus changing it's *shape*.
 ```JavaScript
-  function add(num1) {            // This function adapts the arguments to 1 parameter.
-    return num1;
-  }
+function singleInput(fn) {
+  return function one(arg) {
+    return fn(arg);
+  };
+}
 
-  console.log(add(1,2,3))         // 1
+function multipleInputs(...args) {
+  return args;
+}
+
+let testAdapter = singleInput(multipleInputs);
+
+console.log(testAdapter(1,2,3,4));
 ```
 
+<br>
 
+## 
+
+
+</dl>
+</dd>
 
 
 
