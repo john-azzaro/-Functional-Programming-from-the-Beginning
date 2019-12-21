@@ -196,20 +196,6 @@ For example, you can acutally nest functions inside another function and call th
 </dd>
 </dl>
 
-<br>
-
-## Functions that return functions are "High-order" functions.
-<dl>
-<dd>
-
-A ***high-order function*** is a function that recieves as its inputs one or more functions and/or returns one or more function. In order, if the *values* coming in and/or coming out of a function is a function, then that function itself it a *high-order function*. A function that does NOT receive or return a function is called a *single order function*.
-```JavaScript
-  function add(fn) {
-    return function addition(arg) {
-      return fn(arg);
-    };
-  }
-```
 
 </dd>
 </dl>
@@ -601,6 +587,38 @@ A ***n-ary function*** takes more than two inputs.
 <br>
 <br>
 
+# What is a high-order function?
+<dl>
+<dd>
+
+## A "High-order" function returns another function.
+A ***high-order function*** is a function that recieves inputs of one or more functions and/or returns one or more functions. Basically, a high order function is the "wrapper" of another function. In contrast to a high-order function, a *single order function* does NOT receive or return a function.
+```JavaScript
+  function singleInput(fn) {             // "singleInput" is a high-order function...
+    return function one(arg) {           // that returns another function (i.e. "one")...
+      return fn(arg);                    // with the result.
+    };
+  }
+```
+
+In the example below, we have one function
+
+
+
+
+
+</dl>
+</dd>
+
+
+
+
+
+
+
+
+
+
 # What are adapters?
 <dl>
 <dd>
@@ -608,10 +626,10 @@ A ***n-ary function*** takes more than two inputs.
 ## Adapters "adapt" the shape of a function.
 Since JavaScript functions are *variadic*, meaning that no matter how many parameters you declare, you can pass as many or as few as you want, you can **adapt the shape** of a function. In otherwords, you have two pieces that do not fit and you need an adapter to make them fit.
 
-To make an adapter, you need to create a *high-order function*. For example, if you invoke a function with 3 arguments but the function is binary (meaning, it takes in two values), the orginal function invocation is *n-ary* and was reduced to *binary* thus changing it's *shape*.
+To make an adapter, you can use a *high-order function* to wrap around your adapter. For example, if you invoke a function with 3 arguments but the function is binary (meaning, it takes in two values), the orginal function invocation is *n-ary* and was reduced to *binary* thus changing it's *shape*.
 ```JavaScript
-function singleInput(fn) {
-  return function one(arg) {
+function singleInput(fn) {                           // higher-order function
+  return function one(arg) {                         // w/ adapter
     return fn(arg);
   };
 }
