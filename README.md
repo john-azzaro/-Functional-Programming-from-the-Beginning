@@ -591,8 +591,34 @@ A ***n-ary function*** takes more than two inputs.
 <dl>
 <dd>
 
-## A "High-order" function returns another function.
-A ***high-order function*** is a function that recieves inputs of one or more functions and/or returns one or more functions. Basically, a high order function is the "wrapper" of another function. In contrast to a high-order function, a *single order function* does NOT receive or return a function.
+## Adapters "adapt" the shape of a function.
+Since JavaScript functions are *variadic*, meaning that no matter how many parameters you declare, you can pass as many or as few as you want, you can **adapt the shape** of a function. In otherwords, you have two pieces that do not fit and you need an adapter to make them fit.
+
+To make an adapter, you can use a *high-order function* to wrap around your adapter. For example, if you invoke a function with 3 arguments but the function is binary (meaning, it takes in two values), the orginal function invocation is *n-ary* and was reduced to *binary* thus changing it's *shape*.
+
+In the example below, we use the high-order function ```singleOutput``` to wrap around our adapter function ```one```
+
+```JavaScript
+  function singleInput(fn) {
+    return function one(arg) {
+      return fn(arg);
+    };
+  }
+
+  function multipleInputs(...args) {  
+    return args;
+  }
+
+  let testAdapter = singleInput(multipleInputs);
+
+
+  console.log(testAdapter(1,2,3,4));
+  ```
+
+<br>
+
+## A "high-order" function returns the adapter function.
+A ***high-order function*** is a function that recieves inputs of one or more functions and/or returns one or more functions. Basically, a high order function is the "wrapper" of another function which is returned. In contrast to a high-order function, a *single order function* does NOT receive or return a function.
 ```JavaScript
   function singleInput(fn) {             // "singleInput" is a high-order function...
     return function one(arg) {           // that returns another function (i.e. "one")...
@@ -601,7 +627,7 @@ A ***high-order function*** is a function that recieves inputs of one or more fu
   }
 ```
 
-In the example below, we have one function
+Note that the function returned from the high-order function (i.e. ```singleInput```) has a **single** variable.
 
 
 
@@ -611,54 +637,6 @@ In the example below, we have one function
 </dd>
 
 
-
-
-
-
-
-
-
-
-# What are adapters?
-<dl>
-<dd>
-
-## Adapters "adapt" the shape of a function.
-Since JavaScript functions are *variadic*, meaning that no matter how many parameters you declare, you can pass as many or as few as you want, you can **adapt the shape** of a function. In otherwords, you have two pieces that do not fit and you need an adapter to make them fit.
-
-To make an adapter, you can use a *high-order function* to wrap around your adapter. For example, if you invoke a function with 3 arguments but the function is binary (meaning, it takes in two values), the orginal function invocation is *n-ary* and was reduced to *binary* thus changing it's *shape*.
-```JavaScript
-function singleInput(fn) {                           // higher-order function
-  return function one(arg) {                         // w/ adapter
-    return fn(arg);
-  };
-}
-
-function multipleInputs(...args) {
-  return args;
-}
-
-let testAdapter = singleInput(multipleInputs);
-
-console.log(testAdapter(1,2,3,4));
-```
-
-<br>
-
-## 
-
-
-</dl>
-</dd>
-
-
-
-
-
-
-</dl>
-</dd>
-
 <br>
 <br>
 <br>
@@ -666,5 +644,4 @@ console.log(testAdapter(1,2,3,4));
 
 
 
-## Higher-order functions 
 
