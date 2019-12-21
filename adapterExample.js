@@ -6,10 +6,11 @@ function singleInput(fn) {
   };
 }
 
-function multipleInputs(...args) {
+function multipleInputs(...args) {                // takes multiple inputs.
   return args;
 }
 
 let testAdapter = singleInput(multipleInputs);
+
 
 console.log(testAdapter(1,2,3,4));
