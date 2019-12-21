@@ -596,11 +596,11 @@ Since JavaScript functions are *variadic*, meaning that no matter how many param
 
 To make an adapter, you can use a *high-order function* to wrap around your adapter. For example, if you invoke a function with 3 arguments but the function is binary (meaning, it takes in two values), the orginal function invocation is *n-ary* and was reduced to *binary* thus changing it's *shape*.
 
-In the example below, we use the high-order function ```singleOutput``` to wrap around our adapter function ```one```
+In the example below, we use the high-order function ```singleOutput``` to wrap around our adapter function ```one```:
 
 ```JavaScript
-  function singleInput(fn) {
-    return function one(arg) {
+  function singleInput(fn) {                         // high-order function
+    return function one(arg) {                       // adapter
       return fn(arg);
     };
   }
@@ -618,16 +618,16 @@ In the example below, we use the high-order function ```singleOutput``` to wrap 
 <br>
 
 ## A "high-order" function returns the adapter function.
-A ***high-order function*** is a function that recieves inputs of one or more functions and/or returns one or more functions. Basically, a high order function is the "wrapper" of another function which is returned. In contrast to a high-order function, a *single order function* does NOT receive or return a function.
+A ***high-order function*** is a function that recieves inputs of one or more functions and/or returns one or more functions. Basically, a high order function is the "wrapper" of another function which is returned. In contrast to a high-order function, a *single order function* does NOT receive or return a function. Note that the function returned from the high-order function (i.e. ```singleInput```) has a **single** variable. The high-order function adapts the n-ary function to fint a unary high-order function.
 ```JavaScript
   function singleInput(fn) {             // "singleInput" is a high-order function...
-    return function one(arg) {           // that returns another function (i.e. "one")...
+    return function one(arg) {           // that adapts another function (i.e. "one")...
       return fn(arg);                    // with the result.
     };
   }
 ```
 
-Note that the function returned from the high-order function (i.e. ```singleInput```) has a **single** variable.
+
 
 
 
