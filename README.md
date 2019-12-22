@@ -677,7 +677,12 @@ Although adapters can be execeptionally useful in your code, the problem is that
 <dl>
 <dd>
 
-
+**point-free** means to define a function *without* needing to define its points (i.e. inputs).
+```JavaScript
+  getCar(function onCar(car) {
+    return renderCar(car);
+  });
+```
 
 </dd>
 </dl>
