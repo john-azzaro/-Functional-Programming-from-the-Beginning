@@ -662,19 +662,28 @@ The example below reverses the entire input:
   console.log(flipThis(1,2,3,4));                        // [ 4, 3, 2, 1 ]
 ```
 
-
-
-
+## However, use adaptors sparingly since they are less familiar.
+Although adapters can be execeptionally useful in your code, the problem is that if someone comes by later and reviews your code and they dont recognize or understand it, it can make the point of functional programming less impactful.
 
 </dl>
 </dd>
 
-
 <br>
 <br>
 <br>
 <br>
 
+# What is equational reasoning?
+<dl>
+<dd>
 
 
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
 
