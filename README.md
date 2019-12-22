@@ -631,8 +631,19 @@ A ***high-order function*** is a function that recieves inputs of one or more fu
 For example, suppose you have a function needs to "flip" the order of arguments so that you can pass the arguments as parameters in a different order. In order to create this new shape adaptation that "flips" the order of the arguments, you can create a ***flip*** adapter.
 ```JavaScript
   function flip(fn) {
-    return function
+    return function flipped(arg1, arg2, ...args) {
+      return fn(arg2, arg1,...args);
+    };
   }
+
+  function f(...args) {
+    return args;
+  }
+
+  let flipThis = flip(f);
+
+  console.log(flipThis(1,2,3,4));
+
 ```
 
 
