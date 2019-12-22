@@ -627,6 +627,9 @@ A ***high-order function*** is a function that recieves inputs of one or more fu
   }
 ```
 
+## Adapter functions can manipulate arguments in many ways.
+For example
+
 
 
 
