@@ -617,7 +617,7 @@ In the example below, we use the high-order function ```singleOutput``` to wrap 
 
 <br>
 
-## A "high-order" function returns the adapter function.
+## "High-order" function utilities return adapter functions.
 A ***high-order function*** is a function that recieves inputs of one or more functions and/or returns one or more functions. Basically, a high order function is the "wrapper" of another function which is returned. In contrast to a high-order function, a *single order function* does NOT receive or return a function. Note that the function returned from the high-order function (i.e. ```singleInput```) has a **single** variable. The high-order function adapts the n-ary function to fint a unary high-order function.
 ```JavaScript
   function singleInput(fn) {             // "singleInput" is a high-order function...
@@ -643,10 +643,24 @@ For example, suppose you have a function needs to "flip" the order of arguments 
   let flipThis = flip(f);
 
   console.log(flipThis(1,2,3,4));                        // [ 2, 1, 3, 4 ]
-
 ```
 
+## 
+```JavaScript
+  function reverseArguments(fn) {                       // reverse high-order function
+    return function flipped(arg1, arg2, ...args) {      // adapter function takes the collective arguments.
+      return fn(...args.reverse());                     // and flips all the arguments.
+    };
+  }
 
+  function f(...args) {                                 // function with collective arguments
+    return args;
+  }
+
+  let flipThis = flip(f);
+
+  console.log(flipThis(1,2,3,4));                        // [ 4, 3, 2, 1 ]
+```
 
 
 
