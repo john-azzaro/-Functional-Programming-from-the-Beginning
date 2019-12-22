@@ -644,8 +644,8 @@ For example, suppose you have a function needs to "flip" the order of arguments 
 
   console.log(flipThis(1,2,3,4));                        // [ 2, 1, 3, 4 ]
 ```
+The example below reverses the entire input:
 
-## 
 ```JavaScript
   function reverseArguments(fn) {                       // reverse high-order function
     return function flipped(arg1, arg2, ...args) {      // adapter function takes the collective arguments.
