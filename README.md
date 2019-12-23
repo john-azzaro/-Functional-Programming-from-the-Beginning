@@ -365,7 +365,7 @@ A pure function is a determinate function that always returns the same value wit
 
 <br>
 
-## A pure function when given the same input will have the same output.
+## A pure function, when given the same input, will have the same output.
 A pure function call MUST be predicatable and reliable. In other words, when you give a pure function a given input it will ALWAYS return a given output. So if you have a function that uses something that can be mutated outside the function, then that would NOT be reliable.
 ```JavaScript
   function generateId() {
@@ -530,7 +530,7 @@ console.log(books);                   /* [ { id: 1, title: 'Fixing Old Cars' },
 
 <br>
 
-## Or use an adapter to modify the orginal and set back again.
+## Or use an adapter to modify the orginal and reset back again.
 When you use an adapter, you are effectively using a brute force method to maintain function purity. In the example below, we first create copies of the original books variable from outside the function and the local copy of books for inside our adapter. Then, we run the ```sortBooksByName``` so we can finally get the newly ordered book list. Then, we restore the original order back to the original outside ```books``` variable. And last, we can now return ```newBooks```.
 ```JavaScript
   function getBooksByName() {
@@ -689,11 +689,26 @@ Although adapters can be execeptionally useful in your code, the problem is that
 
 ***Equational reasoning is used to define a function point-free.*** **Equational reasoning** means (within the context of functional programming) that if you have two things (i.e. functions, etc.) and they both have the same *shape*, then they are *interchangable*. In the example below, we have a function ```onCar``` that has the same shape (i.e. the functions are similar with the same parameter) to ```renderCar```. Since ```onCar``` is *equationally* (equivalent) to ```renderCar```, if you use ```renderCar``` as the argument with```getCar```, because the parameter is the same you can define the function ```getCar```, it is **point-free**, which means you can define a function *without* defining its points (i.e. inputs).
 ```JavaScript
-  getCar(function onCar(car) {
-    return renderCar(car);
+  getCar(function onCar(car) {    // "onCar" is equational to... 
+    return renderCar(car);        // ... "renderCar" bc of shape and parameter.
   });
 
-  getCar(renderCar);            // call getCar with renderCar "point-free".
+  getCar(renderCar);              // so we can call getCar with renderCar "point-free".
+```
+<br>
+
+## Equational reasoning creates visible relationships
+In the example below, ```isEven``` is defined in terms of the ```isOdd``` function. Although you could just do the same code for isEven as you did with isOdd, but the befint of this is that you are creating a visible relationshop. This is not completely necessary, but in terms of functional programming could help your reader out.
+```JavaScript
+  function isOdd(num) {
+    return num % 2 === 0;
+  }
+
+  function isEven(num) {
+    return !isOdd(num)            // isEven is the negation of isOdd.
+  }
+
+  console.log(isEven(8));         // true
 ```
 
 </dd>
