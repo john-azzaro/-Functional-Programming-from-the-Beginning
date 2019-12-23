@@ -11,7 +11,7 @@
 * [What are arguments?](#What-are-arguments)
 * [What is a high-order function?](#What-is-a-high-order-function)
 * [What-is-point-free-and-equational-reasoning?](#What-is-point-free-and-equational-reasoning)
-* [](#)
+* [What is closure?](#What-is-closure)
 * [](#)
 * [](#)
 
@@ -687,7 +687,8 @@ Although adapters can be execeptionally useful in your code, the problem is that
 <dl>
 <dd>
 
-***Equational reasoning is used to define a function point-free.*** **Equational reasoning** means (within the context of functional programming) that if you have two things (i.e. functions, etc.) and they both have the same *shape*, then they are *interchangable*. In the example below, we have a function ```onCar``` that has the same shape (i.e. the functions are similar with the same parameter) to ```renderCar```. Since ```onCar``` is *equationally* (equivalent) to ```renderCar```, if you use ```renderCar``` as the argument with```getCar```, because the parameter is the same you can define the function ```getCar```, it is **point-free**, which means you can define a function *without* defining its points (i.e. inputs).
+## Equational reasoning is used to define a function point-free.
+**Equational reasoning** means (within the context of functional programming) that if you have two things (i.e. functions, etc.) and they both have the same *shape*, then they are *interchangable*. In the example below, we have a function ```onCar``` that has the same shape (i.e. the functions are similar with the same parameter) to ```renderCar```. Since ```onCar``` is *equationally* (equivalent) to ```renderCar```, if you use ```renderCar``` as the argument with```getCar```, because the parameter is the same you can define the function ```getCar```, it is **point-free**, which means you can define a function *without* defining its points (i.e. inputs).
 ```JavaScript
   getCar(function onCar(car) {    // "onCar" is equational to... 
     return renderCar(car);        // ... "renderCar" bc of shape and parameter.
