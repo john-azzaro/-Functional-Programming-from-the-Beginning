@@ -677,11 +677,11 @@ Although adapters can be execeptionally useful in your code, the problem is that
 <dl>
 <dd>
 
-***Equational reasoning*** means, within the context of functional programming, that if you have two things (i.e. functions, etc.) and they both have the same *shape*, then they are *interchangable*.
+***Equational reasoning*** means (within the context of functional programming) that if you have two things (i.e. functions, etc.) and they both have the same *shape*, then they are *interchangable*. In the example below, we have a function ```onCar``` that has the same shape (i.e. the functions are similar with the same parameter)
 
 **point-free** means to define a function *without* needing to define its points (i.e. inputs).
 
-In the example below, we have a function ```onCar``` has the same shape (i.e. the functions are similar with the same parameter)
+
 
 In the example below, 
 ```JavaScript
