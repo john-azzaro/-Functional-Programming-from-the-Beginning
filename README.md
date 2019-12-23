@@ -719,3 +719,17 @@ In the example below, ```isEven``` is defined in terms of the ```isOdd``` functi
 <br>
 <br>
 
+# What is closure?
+<dl>
+<dd>
+
+
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
+
