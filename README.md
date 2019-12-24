@@ -758,7 +758,6 @@ In terms of functional programming, it is "safe" functionally because the variab
   }
 ```
 
-
 </dd>
 </dl>
 
