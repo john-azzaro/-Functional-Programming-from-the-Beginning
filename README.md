@@ -742,7 +742,17 @@ console.log(doCount());          // 1
 console.log(doCount());          // 2
 console.log(doCount());          // 3
 ```
+
 It is important to note that in terms of functional programming, this is NOT a pure function as the function does NOT return the same value everytime we call it. In other words, closure is not exactly functionally pure.
+
+In the example below, we have an example of closure with a pure function. The function ```addAnotherNum``` has the parameter "c". This parameter is passed into the inner ```addTwoNums``` function from outer scope. The ```addTwoNums``` function is closed over the variable "c" and this is why it is able to use that variable. In terms of functional programming, it is "safe" functionally because the variable does not change... it is a memory of thing that does not get modified.
+```JavaScript
+  function addAnotherNum(c) {
+    return function addTwoNums(a,b) {
+      return a + b + c;
+    };
+  }
+```
 
 
 </dd>
