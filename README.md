@@ -724,7 +724,8 @@ In the example below, ```isEven``` is defined in terms of the ```isOdd``` functi
 <dl>
 <dd>
 
-
+## 
+Closure is 
 
 </dd>
 </dl>
