@@ -726,6 +726,19 @@ In the example below, ```isEven``` is defined in terms of the ```isOdd``` functi
 
 ## 
 Closure is when a function remembers the variables around it even when that function is executed elsewhere.
+```JavaScript
+  function counter() {
+    let count = 0;
+    return function increment() {
+      return count++;
+    };
+  }
+
+  let doCount = counter();
+  
+```
+
+
 
 </dd>
 </dl>
