@@ -727,7 +727,7 @@ In the example below, ```isEven``` is defined in terms of the ```isOdd``` functi
 ## Closure is when you close over a variable that is around it.
 Closure is when a function remembers the variables around it even when that function is executed elsewhere. For example, if you have a variable within a function and a function inside the function that uses that that variable, the inner function is "closing" around that variable.
 
-In the example below, we have a function called ```counter``` with a ```count``` variable and a ```increment``` function that increments by one. When you call ```doCount``` the ```counter``` function runs and increments by one. And for every successive time you call the ```counter``` function, the value will increment by one. So where is **closure** in this example?  The inner function ```increment``` is "closed" around the ```count``` variable OUTSIDE the function. When you run ```doCount```, the increment is still remembered and updated.
+In the example below, we have a function called ```counter``` with a ```count``` variable and a ```increment``` function that increments by one. When you call ```doCount``` the ```counter``` function runs and increments by one. And for every successive time you call the ```counter``` function, the value will increment by one. So where is **closure** in this example?  The inner function ```increment``` is "closed" around the ```count``` variable OUTSIDE the function. When you run ```doCount```, the increment is still remembered and updated. However, ot is important to note that in terms of functional programming, this is NOT a pure function as the function does NOT return the same value everytime we call it.
 ```JavaScript
 function counter() {
   let count = 0;
@@ -742,10 +742,12 @@ console.log(doCount());          // 1
 console.log(doCount());          // 2
 console.log(doCount());          // 3
 ```
+<br>
 
-It is important to note that in terms of functional programming, this is NOT a pure function as the function does NOT return the same value everytime we call it. In other words, closure is not exactly functionally pure.
+## Closure must be over non-changing values.
+Closure is not exactly functionally pure. If you want to use closure in functional programming and keep the function pure, it must be over non-changing values. Otherwise you will get a class of bug that may work in many cases but will have issues at some point. In the example below, we have an example of closure with a pure function. The function ```addAnotherNum``` has the parameter "c". This parameter is passed into the inner ```addTwoNums``` function from outer scope. The ```addTwoNums``` function is closed over the variable "c" and this is why it is able to use that variable. 
 
-In the example below, we have an example of closure with a pure function. The function ```addAnotherNum``` has the parameter "c". This parameter is passed into the inner ```addTwoNums``` function from outer scope. The ```addTwoNums``` function is closed over the variable "c" and this is why it is able to use that variable. In terms of functional programming, it is "safe" functionally because the variable does not change... it is a memory of thing that does not get modified.
+In terms of functional programming, it is "safe" functionally because the variable does not change... it is a memory of thing that does not get modified.
 ```JavaScript
   function addAnotherNum(c) {
     return function addTwoNums(a,b) {
