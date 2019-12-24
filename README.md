@@ -733,16 +733,16 @@ The inner function ```increment``` is "closed" around the ```count``` variable O
 ```JavaScript
 function counter() {
   let count = 0;                       
-  return function increment() {          // "increment" closes around the count variable. 
+  return function increment() {                  // "increment" closes around the count variable. 
     return ++count;
   };
 }
 
 let doCount = counter();
 
-console.log(doCount());                  // 1
-console.log(doCount());                  // 2
-console.log(doCount());                  // 3
+console.log(doCount());                          // 1 
+console.log(doCount());                          // 2
+console.log(doCount());                          // 3
 ```
 <br>
 
@@ -751,9 +751,9 @@ Closure is not exactly functionally pure. If you want to use closure in function
 
 In terms of functional programming, it is "safe" functionally because the variable does not change... it is a memory of thing that does not get modified.
 ```JavaScript
-  function addAnotherNum(c) {            //
-    return function addTwoNums(a,b) {    // addTwoNums is closed around the "c" variable.
-      return a + b + c;
+  function addAnotherNum(c) {                    
+    return function addTwoNums(a,b) {            
+      return a + b + c;                          // addTwoNums is closed around the "c" variable.
     };
   }
 ```
