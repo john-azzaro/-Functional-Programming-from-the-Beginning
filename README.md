@@ -725,7 +725,9 @@ In the example below, ```isEven``` is defined in terms of the ```isOdd``` functi
 <dd>
 
 ## 
-Closure is when a function remembers the variables around it even when that function is executed elsewhere.
+Closure is when a function remembers the variables around it even when that function is executed elsewhere. 
+
+In the example below, we have a function called ```counter``` with a ```count``` variable and a ```increment``` function that increments by one. When you call ```doCount``` the ```counter``` function runs and increments by one. And for every successive time you call the ```counter``` function, the value will increment by one. So where is **closure** in this example?  The inner function ```increment``` is "closed" around the ```count``` variable OUTSIDE the function. When you run ```doCount```, the increment is still remembered.
 ```JavaScript
 function counter() {
   let count = 0;
