@@ -798,7 +798,7 @@ Why would you want to defer the work? If some work is computationally heavy and 
 <br>
 
 # Eager execution 
-With eager execution, instead of work occuring when the function is called the work occurs with the ```blockItOut``` function. The reason is because the variable ```str``` is declared outside the closure of the inner function. As opposed to lazy execution, the work is only done once. However, if ```blockItOut``` isnt called, work is done unnecessarily.
+With eager execution, instead of work occuring when the function is called the work occurs with the ```blockItOut``` function. The reason is because the variable ```str``` is declared outside the closure of the inner function. As opposed to lazy execution, the work is only done once. However, if ```blockItOut``` isnt called, work is done unnecessarily. Also note that unlike in lazy execution where the it was ```count``` that was closed over, in this case it is ```str``` and the place that we put that code is why it is eager (i.e. outside the inner function).
 
 
 ```JavaScript
