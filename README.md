@@ -784,7 +784,7 @@ Why would you want to defer the work? If some work is computationally heavy and 
 ```JavaScript
   function repeater(count) {
     return function addBlock() {           // "addBlock" is deferred.
-      return "".padStart(count, "#")
+      return "".padStart(count, "#");
     }
   }
 
@@ -797,8 +797,24 @@ Why would you want to defer the work? If some work is computationally heavy and 
 
 <br>
 
-# 
+# Eager execution 
+With eager execution, instead of work occuring when the function is called the work occurs with the ```blockItOut``` function. The reason is because the variable ```str``` is declared outside the closure of the inner function. As opposed to lazy execution, the work is only done once. However, if ```blockItOut``` isnt called, work is done unnecessarily.
 
+
+```JavaScript
+  function repeater(count) {
+    let str = "".padStart(count, "#");
+    return function addBlock() {    
+      return str;
+    }
+  }
+
+  let blockItOut = repeater(8);
+
+  console.log(blockItOut());               // ########
+  console.log(blockItOut());               // ########   (second time same)
+  console.log(blockItOut());               // ########   (third time same)
+```
 
 
 </dd>
