@@ -772,6 +772,19 @@ In terms of functional programming, it is "safe" functionally because the variab
 <dl>
 <dd>
 
+In the example, below
+
+```JavaScript
+  function repeater(count) {
+    return function addWow() {
+      return "".padStart(count, "Wow")
+    }
+  }
+
+  let amazingTrick = repeater(8);
+
+  console.log(amazingTrick());               // abcabcab
+```
 
 
 </dd>
