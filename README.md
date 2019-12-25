@@ -767,3 +767,18 @@ In terms of functional programming, it is "safe" functionally because the variab
 <br>
 <br>
 
+# What is the difference between lazy and eager execution?
+
+<dl>
+<dd>
+
+
+
+</dd>
+</dl>
+
+
+<br>
+<br>
+<br>
+<br>
