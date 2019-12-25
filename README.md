@@ -772,14 +772,12 @@ In terms of functional programming, it is "safe" functionally because the variab
 <dl>
 <dd>
 
-# Lazy execution defers work until called.
-**Lazy (i.e. deferred) execution is when you defer some work by putting it into a function and deferring it until the function is called.** 
-
-In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. The ```repeater``` function gives back a function called ```addBlock``` that is *closed* around the variable ```count```.  The variable ```blockItOut``` is declared with the amount to block out (i.e. 8) and when you call it, you will always get 8 hashtags (i.e. ########). 
+## Lazy execution defers work until called.
+**Lazy (i.e. deferred) execution is when you defer some work by putting it into a function and deferring it until the function is called.** In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. The ```repeater``` function gives back a function called ```addBlock``` that is *closed* around the variable ```count```.  The variable ```blockItOut``` is declared with the amount to block out (i.e. 8) and when you call it, you will always get 8 hashtags (i.e. ########). 
 
 What is important to consider with this example is *when* the work in this code happened. In the example below, the work is done inside ```addBlock``` which means that the work is done when you call the high-order function rather than inside the variable ```blockItOut```.
 
-Why would you want to defer the work? If some work is computationally heavy and you were not sure the work didnt need to be called all the time, you would save on work that would otherwise be wasted. By adding an additional layer of function wrapping, work will only occur when the inner ```addBlock``` function is called. So you would want to do this if you have a function that was only occasionally called because you would have to call it every single time.
+**Why would you want to defer the work?** If some work is computationally heavy and you were not sure the work didnt need to be called all the time, you would save on work that would otherwise be wasted. By adding an additional layer of function wrapping, work will only occur when the inner ```addBlock``` function is called. So you would want to do this if you have a function that was only occasionally called because you would have to call it every single time.
 
 ```JavaScript
   function repeater(count) {
@@ -797,7 +795,7 @@ Why would you want to defer the work? If some work is computationally heavy and 
 
 <br>
 
-# Eager execution executes once when called.
+## Eager execution executes once when called.
 With eager execution, instead of work occuring when the function is called, the work occurs when the ```blockItOut``` function is called. The reason is because the variable ```str``` is declared outside the closure of the inner function. As opposed to lazy execution, the work is only done once. However, if ```blockItOut``` isnt called, work is done unnecessarily. Also note that unlike in lazy execution where the it was ```count``` that was closed over, in this case it is ```str``` and the place that we put that code is why it is eager (i.e. outside the inner function).
 ```JavaScript
   function repeater(count) {
