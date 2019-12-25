@@ -772,7 +772,7 @@ In terms of functional programming, it is "safe" functionally because the variab
 <dl>
 <dd>
 
-In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. 
+In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. The ```repeater``` function gives back a function called ```addBlock``` that is *closed* around the variable ```count```.  The variable ```blockItOut``` is declared with the amount to block out (i.e. 8) and when you call it, you will always get 8 hashtags (i.e. ########). 
 
 ```JavaScript
   function repeater(count) {
@@ -783,7 +783,7 @@ In the example below, when you call ```blockItOut```, you will call the ```repea
 
   let blockItOut = repeater(8);
 
-  console.log(blockItOut());               // abcabcab
+  console.log(blockItOut());               // ########
 ```
 
 
