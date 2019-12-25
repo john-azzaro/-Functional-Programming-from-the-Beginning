@@ -773,13 +773,17 @@ In terms of functional programming, it is "safe" functionally because the variab
 <dd>
 
 # Lazy execution defers work until called.
-**Lazy (i.e. deferred) execution is when you defer some work by putting it into a function and deferring it until the function is called.** In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. The ```repeater``` function gives back a function called ```addBlock``` that is *closed* around the variable ```count```.  The variable ```blockItOut``` is declared with the amount to block out (i.e. 8) and when you call it, you will always get 8 hashtags (i.e. ########). 
+**Lazy (i.e. deferred) execution is when you defer some work by putting it into a function and deferring it until the function is called.** 
+
+In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. The ```repeater``` function gives back a function called ```addBlock``` that is *closed* around the variable ```count```.  The variable ```blockItOut``` is declared with the amount to block out (i.e. 8) and when you call it, you will always get 8 hashtags (i.e. ########). 
 
 What is important to consider with this example is *when* the work in this code happened. In the example below, the work is done inside ```addBlock``` which means that the work is done when you call the high-order function rather than inside the variable ```blockItOut```.
 
+Why would you want to defer the work? If some work is computationally heavy and you were not sure the work didnt need to be called all the time, you would save on work that would otherwise be wasted. By adding an additional layer of function wrapping, work will only occur when the inner ```addBlock``` function is called. So you would want to do this if you have a function that was only occasionally called because you would have to call it every single time.
+
 ```JavaScript
   function repeater(count) {
-    return function addBlock() {
+    return function addBlock() {           // "addBlock" is deferred.
       return "".padStart(count, "#")
     }
   }
@@ -787,7 +791,14 @@ What is important to consider with this example is *when* the work in this code 
   let blockItOut = repeater(8);
 
   console.log(blockItOut());               // ########
+  console.log(blockItOut());               // ########   (second time same)
+  console.log(blockItOut());               // ########   (third time same)
 ```
+
+<br>
+
+# 
+
 
 
 </dd>
