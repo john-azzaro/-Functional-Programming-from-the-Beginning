@@ -772,18 +772,18 @@ In terms of functional programming, it is "safe" functionally because the variab
 <dl>
 <dd>
 
-In the example, below
+In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. 
 
 ```JavaScript
   function repeater(count) {
-    return function addWow() {
-      return "".padStart(count, "Wow")
+    return function addBlock() {
+      return "".padStart(count, "#")
     }
   }
 
-  let amazingTrick = repeater(8);
+  let blockItOut = repeater(8);
 
-  console.log(amazingTrick());               // abcabcab
+  console.log(blockItOut());               // abcabcab
 ```
 
 
