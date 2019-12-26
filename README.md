@@ -773,7 +773,7 @@ In terms of functional programming, it is "safe" functionally because the variab
 <dd>
 
 ## Lazy execution defers work until called.
-**Lazy (i.e. deferred) execution is when you defer some work by putting it into a function and deferring it until the function is called.** In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. The ```repeater``` function gives back a function called ```addBlock``` that is *closed* around the variable ```count```.  The variable ```blockItOut``` is declared with the amount to block out (i.e. 8) and when you call it, you will always get 8 hashtags (i.e. ########). 
+**Lazy (i.e. deferred) execution is when you defer some work by putting it into a function and deferring it until the function is called.** In other words, you choose to put the code somewhere where it is executed *lazily* later. In the example below, when you call ```blockItOut```, you will call the ```repeater``` with a value of 8 resulting in 8 hashtags. The ```repeater``` function gives back a function called ```addBlock``` that is *closed* around the variable ```count```.  The variable ```blockItOut``` is declared with the amount to block out (i.e. 8) and when you call it, you will always get 8 hashtags (i.e. ########). 
 
 What is important to consider with this example is *when* the work in this code happened. In the example below, the work is done inside ```addBlock``` which means that the work is done when you call the high-order function rather than inside the variable ```blockItOut```.
 
