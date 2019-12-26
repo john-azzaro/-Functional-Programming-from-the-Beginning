@@ -828,7 +828,7 @@ With eager execution, instead of work occuring when the function is called, the 
 
 **Memoization is **
 
-If you expect for a function to be called multiple times with the same input, then you should use memoization
+If you expect for a function to be called multiple times with the same input, then you should use memoization. You need ot be able to predict the expected use cases before you implement memoization
 The benefits of memoization is that
 The cost of memoization is that it takes up internal cache, so it takes up additional memory and for this reason you shouldnt use it for every function you make.
 
