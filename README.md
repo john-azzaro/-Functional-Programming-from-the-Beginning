@@ -821,3 +821,17 @@ With eager execution, instead of work occuring when the function is called, the 
 <br>
 <br>
 <br>
+
+# What is memoization?
+<dl>
+<dd>
+
+
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
