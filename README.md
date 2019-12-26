@@ -826,34 +826,30 @@ With eager execution, instead of work occuring when the function is called, the 
 <dl>
 <dd>
 
+## Memoization is containing the cache side effects of an inner function.
 
-**Memoization is **
-
-If you expect for a function to be called multiple times with the same input, then you should use memoization. You need ot be able to predict the expected use cases before you implement memoization
-The benefits of memoization is that
-The cost of memoization is that it takes up internal cache, so it takes up additional memory and for this reason you shouldnt use it for every function you make.
+In other words, memoization is the caching of results so they cannot be observed by any other part of the program. The benefits of memoization is that work is deferred and then once done, it is cached for future use. The cost of memoization is that it takes up internal cache, so it takes up additional memory and for this reason you shouldnt use it for every function you make. If you expect for a function to be called multiple times with the same input, then you should use memoization. You need to be able to predict the expected use cases before you implement memoization
 
 In the example below, we have a lazy execution and it is stored in cache. The function ```hashTagIt``` is closed over a variable that is changing, specifically ```str```. Although this seems like it is an impure function because the variable ```str``` can be changed, given the same input (i.e. 10), it does return the same output (i.e. ##########).
-
 ```JavaScript
   function repeat(count) {
-    let str;
-    return function hashTagIt() {
-      if (str == undefined) {
-          str = "".padStart(count, "#");
+    let str;                                 // variable "str" is undefined by default.
+    return function hashTagIt() {            // When invoked, "hashTagIt" (w/ closed around str).
+      if (str == undefined) {                // check to see if str is undefined (will only be once).
+          str = "".padStart(count, "#");     // if it is, pad with hashtags...
       }
-      return str;
+      return str;                            // and return str.
     };
   }
 
   let blockedOut = repeat(10);
 
-  console.log(blockedOut());                    // ##########
-  console.log(blockedOut());                    // ##########
+  console.log(blockedOut());                 // ##########
+  console.log(blockedOut());                 // ##########
 ```
 
-
-
+## Use a memoization utility to do the same thing.
+There are special functional utility libraries that exist that can do the same thing as what was done above that computes an output for an input once and then cache that information. Then, when you need to get the information, you can return it easily. To do this, you woudl simply wrap the inner function in a "memoize" or "memo" method.
 
 </dd>
 </dl>
