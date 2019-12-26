@@ -826,11 +826,34 @@ With eager execution, instead of work occuring when the function is called, the 
 <dl>
 <dd>
 
+
 **Memoization is **
 
 If you expect for a function to be called multiple times with the same input, then you should use memoization. You need ot be able to predict the expected use cases before you implement memoization
 The benefits of memoization is that
 The cost of memoization is that it takes up internal cache, so it takes up additional memory and for this reason you shouldnt use it for every function you make.
+
+In the example below, we have a lazy execution and it is stored in cache. The function ```hashTagIt``` is closed over a variable that is changing, specifically ```str```. Although this seems like it is an impure function because the variable ```str``` can be changed, given the same input (i.e. 10), it does return the same output (i.e. ##########).
+
+```JavaScript
+  function repeat(count) {
+    let str;
+    return function hashTagIt() {
+      if (str == undefined) {
+          str = "".padStart(count, "#");
+      }
+      return str;
+    };
+  }
+
+  let blockedOut = repeat(10);
+
+  console.log(blockedOut());                    // ##########
+  console.log(blockedOut());                    // ##########
+```
+
+
+
 
 </dd>
 </dl>
