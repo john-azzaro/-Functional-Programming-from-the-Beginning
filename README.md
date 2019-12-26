@@ -826,7 +826,7 @@ With eager execution, instead of work occuring when the function is called, the 
 <dl>
 <dd>
 
-## Memoization is containing the cache side effects of an inner function.
+## Memoization contains the cache side effects of an inner function.
 
 In other words, memoization is the caching of results so they cannot be observed by any other part of the program. The benefits of memoization is that work is deferred and then once done, it is cached for future use. The cost of memoization is that it takes up internal cache, so it takes up additional memory and for this reason you shouldnt use it for every function you make. If you expect for a function to be called multiple times with the same input, then you should use memoization. You need to be able to predict the expected use cases before you implement memoization
 
@@ -848,7 +848,7 @@ In the example below, we have a lazy execution and it is stored in cache. The fu
   console.log(blockedOut());                 // ##########
 ```
 
-## Use a memoization utility to do the same thing.
+## You can also use a memoization utility to do the same thing.
 There are special functional utility libraries that exist that can do the same thing as what was done above that computes an output for an input once and then cache that information. Then, when you need to get the information, you can return it easily. To do this, you woudl simply wrap the inner function in a "memoize" or "memo" method.
 
 </dd>
