@@ -11,12 +11,11 @@ function repeat(count) {
   };
 }
 
-let blockedOut
+let blockedOut = repeat(10);
 
+console.log(blockedOut());
+console.log(blockedOut());
 
-console.log(repeat());
-console.log(repeat());
-console.log(repeat());
 
 
 
