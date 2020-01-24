@@ -917,12 +917,12 @@ There are special functional utility libraries that exist that can do the same t
 <dl>
 <dd>
 
-**Partial application is presetting arguments.** A *partial application* specializes a generalized function by taking a function as its first input and then the next inputs are a set of pameters that will go along with that function at some point. This featre is included in most functional libraries. In the example below, ```getCustomer``` uses a partial application which specifies the function (ajax) and the ordered parameters (CUSTOMER_API).
+**Partial application is presetting arguments.** A *partial application* specializes a generalized function by taking a function as its first input and then the next inputs are a set of pameters that will go along with that function at some point. This featre is included in most functional libraries. In the example below, ```getCustomer``` uses a partial application which specifies the function (ajax) and the ordered parameters (CUSTOMER_API). When you call getCustomer, you are effectively calling ajax and passing in the url and data parameters as CUSTOMER_API and the object.
 
 ```JavaScript
   function ajax(url, data, callback) {...};
 
-  let getCustomer = partial(ajax, CUSTOMER_API);     
+  let getCustomer = partial(ajax, CUSTOMER_API, {id:25});     
 ```
 
 </dd>
@@ -940,7 +940,18 @@ There are special functional utility libraries that exist that can do the same t
 **Currying is a common form of specialization that specializes a general function.** 
 
 
-Below is an example of a *manual, 3 level curry*:
+
+In the example below, which is a *manual, 3 level curry* function, we have a function called ```ajax``` that has 3 levels: an ajax level, a getData level, and a getCallBack level. 
+```JavaScript
+  function ajax(url) {                                // level 1: ajax
+    return function getData(data) {                   // level 2: getData
+      return function getCallBack(callback) {...}     // level 3: getCallBack
+    }
+  }
+```
+
+When you call the ajax function, you call the function with 3 sets of parentheses. These parentheses are for the different levels of the function. So there are 3 functions nested
+and there are 3 function calls.
 ```JavaScript
   function ajax(url) {
     return function getData(data) {
@@ -948,7 +959,10 @@ Below is an example of a *manual, 3 level curry*:
     }
   }
 
-  ajax(CUSTOMER_API) ({id:25}) (renderCustomer);          // This is a manual, 3-level curry call.
+  ajax(CUSTOMER_API) ({id:25}) (renderCustomer);  
+  //       |             |             |       
+  //       |             |             |
+  //    level 1       level 2       level 3
 ```
 
 When you 
