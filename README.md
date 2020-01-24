@@ -917,7 +917,7 @@ There are special functional utility libraries that exist that can do the same t
 <dl>
 <dd>
 
-**Partial application is presetting arguments.** A *partial application* takes a function as its first input and then the next inputs are a set of pameters that will go along with that function at some point. This featre is included in most functional libraries. In the example below, ```getCustomer``` uses a partial application which specifies the function (ajax) and the ordered parameters (CUSTOMER_API).
+**Partial application is presetting arguments.** A *partial application* specializes a generalized function by taking a function as its first input and then the next inputs are a set of pameters that will go along with that function at some point. This featre is included in most functional libraries. In the example below, ```getCustomer``` uses a partial application which specifies the function (ajax) and the ordered parameters (CUSTOMER_API).
 
 ```JavaScript
   function ajax(url, data, callback) {...};
@@ -937,8 +937,26 @@ There are special functional utility libraries that exist that can do the same t
 <dl>
 <dd>
 
+**Currying is a common form of specialization that specializes a general function.** 
 
 
+Below is an example of a *manual, 3 level curry*:
+```JavaScript
+  function ajax(url) {
+    return function getData(data) {
+      return function getCallBack(callback) {...}
+    }
+  }
+
+  ajax(CUSTOMER_API) ({id:25}) (renderCustomer);          // This is a manual, 3-level curry call.
+```
+
+When you 
+
+
+
+
+Sometimes a function needs multiple inputs.
 
 
 </dd>
