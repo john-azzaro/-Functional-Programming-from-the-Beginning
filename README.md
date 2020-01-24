@@ -939,15 +939,16 @@ The benefit of referential transparency is to the benefit of the reader. Within 
 <dl>
 <dd>
 
-**Currying is a common form of specialization that specializes a general function.** 
+**Currying is a common form of specialization that specializes a general function.** Based on the functionality of Haskel and the fact that its functions are unary, currying 
+enables you to pass along one input at a time.
 
 
 
-In the example below, which is a *manual, 3 level curry* function, we have a function called ```ajax``` that has 3 levels: an ajax level, a getData level, and a getCallBack level. 
+In the example below you will see a *manual, 3 level curry* function, we have a function called ```ajax``` that has 3 levels: an ajax level, a getData level, and a getCallBack level. 
 ```JavaScript
-  function ajax(url) {                                // level 1: ajax
-    return function getData(data) {                   // level 2: getData
-      return function getCallBack(callback) {...}     // level 3: getCallBack
+  function ajax(url) {                                // level 1: ajax.
+    return function getData(data) {                   // level 2: getData.
+      return function getCallBack(callback) {...}     // level 3: getCallBack.
     }
   }
 ```
@@ -961,7 +962,7 @@ and there are 3 function calls.
     }
   }
 
-  ajax(CUSTOMER_API) ({id:25}) (renderCustomer);  
+  ajax(CUSTOMER_API) ({id:25}) (renderCustomer);    // call ajax with a manual curry.
   //       |             |             |       
   //       |             |             |
   //    level 1       level 2       level 3
@@ -975,14 +976,22 @@ The benefit of currying is that when you do this, you can call the nested functi
     }
   }
 
-  let getCustomer = ajax(CUSTOMER_API);               // calling getCustomer will return the level 1 with CUSTOMER_API.
-  let getCurrentUser = getCustomer({id:25})           // When you call getCurrentUser with getCustomer, you are able tpo return the second level.
+  let getCustomer = ajax(CUSTOMER_API);               // Will return the level 1 with CUSTOMER_API.
+  let getCurrentUser = getCustomer({id:25})           // Will return the level 2 via getCustomer.
 ```
 
+## In JavaScript, you can make a utility to curry.
+For this utility, you simply need to call curry, pass in how many inputs you expect to receieve, and then provide the function. Note that the curry utility will automatically adapt the function into the multi-level function from above. This utility creates a adapeter function (i.e. wrapper) whose job it is to expect another input until you provide th especified number of inputs, and then calls the underlying function.
+```JavaScript
+  let ajax = curry(
+    3,
+    function ajax(url, data, callback){...};
+  );
 
+  let getCustomer = ajax(CUSTOMER_API);               // Will return the level 1 with CUSTOMER_API.
+  let getCurrentUser = getCustomer({id:25})           // Will return the level 2 via getCustomer.
+```
 
-
-Sometimes a function needs multiple inputs.
 
 
 </dd>
