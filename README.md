@@ -103,6 +103,17 @@ As mentioned, the example above is of a *function declaration* which is largely 
 
 <br>
 
+## Function names should be semantic.
+<dl>
+<dd>
+
+The name of a function call describes it purpose, so you want to keep the code more semantic.  The function call should describe its purpose. 
+
+</dd>
+</dl>
+
+<br>
+
 ## All functions in JavaScript are "variadic".
 <dl>
 <dd>
@@ -182,6 +193,17 @@ Note that you do NOT instantiate the default parameter as a variable.
     num2 = num2 || 5
   };
 ```
+
+</dd>
+</dl>
+
+<br>
+
+## Parameters should be ordered general (on the left) to specific (on the right).
+<dl>
+<dd>
+
+Parameter order matters a lot. When you order your parameters, you need to go from general (on the left) to specific(on the right). The order of those inputs matter because you are going to provide those inputs one at a time and unfold them in that order. So for example a callback would come before something like an array because the array has specific data in it.
 
 </dd>
 </dl>
