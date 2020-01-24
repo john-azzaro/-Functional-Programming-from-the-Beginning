@@ -103,14 +103,7 @@ As mentioned, the example above is of a *function declaration* which is largely 
 
 <br>
 
-## Function names should be semantic.
-<dl>
-<dd>
-
-The name of a function call describes it purpose, so you want to keep the code more semantic.  The function call should describe its purpose. 
-
-</dd>
-</dl>
+However, No functionality is chnaged, only the style of the code which is intended to be more semantic. The only drawback is that you do clutter up the code.
 
 <br>
 
@@ -228,12 +221,34 @@ For example, you can acutally nest functions inside another function and call th
 </dd>
 </dl>
 
+<br>
+
+## Function calls should be semantic.
+<dl>
+<dd>
+
+The name of a function call describes it purpose, so you want to keep the code more semantic.  The function call should describe its purpose. When making function calls more semantic, you do tend to clutter up your code. However, no functionality has changed... only the style of the code which is intended to be more semantic and readable to the user.
+
+```JavaScript
+  
+  function ajax(url, data, callback) {...};
+
+  ajax(CUSTOMER_API, {id:25}, renderCustomer);                      // Although this works, it no very readable.
+  
+  ----------
+
+  function getCustomer(data, callback) {
+    return ajax(CUSTOMER_API, data, callback);
+  }
+  getUser({id: 25}, renderCustomer)                          // This is more semantic even though it adds more code.
+```
 
 </dd>
 </dl>
 
 
-
+</dd>
+</dl>
 
 
 <br>
@@ -898,8 +913,38 @@ There are special functional utility libraries that exist that can do the same t
 <br>
 <br>
 
-Function parameters should be ordered general to specific.
+# How do you implement specialization with Partial Application?
+<dl>
+<dd>
 
-The name of a function call describes it purpose, so you want to keep the code more semantic.  The function call should describe its purpose. No functionality is chnaged, only the style of the code which is intended to be more semantic. The only drawback is that you do clutter up the code.
+**Partial application is presetting arguments.** A *partial application* takes a function as its first input and then the next inputs are a set of pameters that will go along with that function at some point. This featre is included in most functional libraries. In the example below, ```getCustomer``` uses a partial application which specifies the function (ajax) and the ordered parameters (CUSTOMER_API).
 
-Paramater order matters a lot. When you order your parameters, you need to go from general (on the left) to specific(on the right). The order of those inputs matter because you are going to provide those inputs one at a time and unfold them in that order. So for example a callback would come before something like an array because the array has specific data in it.
+```JavaScript
+  function ajax(url, data, callback) {...};
+
+  let getCustomer = partial(ajax, CUSTOMER_API);     
+```
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
+
+# How do you implement specialization with Currying?
+<dl>
+<dd>
+
+
+
+
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
