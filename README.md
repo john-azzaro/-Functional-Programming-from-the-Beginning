@@ -858,3 +858,11 @@ There are special functional utility libraries that exist that can do the same t
 <br>
 <br>
 <br>
+
+=====
+Needs formatting
+=====
+
+
+# What is referential transparency?
+Referenctial transparency means a function can be replaced with its return value and not effect any part of the program. A function is pure if it has referential transparency. Laguages like Haskel, refereential is a key part of the langauge which the compiler can take advantage of. Thus, Haskel can memoize eveyrthing because it can do it with no issue. But although Haskell can do that, JavaScript cannot. But that does not mean that referential transparency is only useful to languages that the complier can use. The benefit of referential transparency is to the benefit of the reader
