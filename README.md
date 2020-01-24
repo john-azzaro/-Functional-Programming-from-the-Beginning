@@ -851,6 +851,7 @@ In the example below, we have a lazy execution and it is stored in cache. The fu
 ## You can also use a memoization utility to do the same thing.
 There are special functional utility libraries that exist that can do the same thing as what was done above that computes an output for an input once and then cache that information. Then, when you need to get the information, you can return it easily. To do this, you woudl simply wrap the inner function in a "memoize" or "memo" method.
 
+
 </dd>
 </dl>
 
@@ -859,10 +860,24 @@ There are special functional utility libraries that exist that can do the same t
 <br>
 <br>
 
-=====
-Needs formatting
-=====
 
 
 # What is referential transparency?
-Referenctial transparency means a function can be replaced with its return value and not effect any part of the program. A function is pure if it has referential transparency. Laguages like Haskel, refereential is a key part of the langauge which the compiler can take advantage of. Thus, Haskel can memoize eveyrthing because it can do it with no issue. But although Haskell can do that, JavaScript cannot. But that does not mean that referential transparency is only useful to languages that the complier can use. The benefit of referential transparency is to the benefit of the reader
+<dl>
+<dd>
+
+**Referential transparency means a function can be replaced with its return value and not effect any part of the program.** A function is pure if it has referential transparency. Laguages like Haskel, refereential is a key part of the langauge which the compiler can take advantage of. Thus, Haskel can memoize eveyrthing because it can do it with no issue. But although Haskell can do that, JavaScript cannot. But that does not mean that referential transparency is only useful to languages that the complier can use. The benefit of referential transparency is to the benefit of the reader. Within the confines of JavaScript, referential transparency matters because it puts the responsibility on you, the author of the code,to make it as easy apossible for the reader of your code, to look at a line and know exactly what it is going to do so you dont have to do that work over again. This lends to the argument that function purity matters a great deal.
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
+
+Function parameters should be ordered general to specific.
+
+The name of a function call describes it purpose, so you want to keep the code more semantic.  The function call should describe its purpose. No functionality is chnaged, only the style of the code which is intended to be more semantic. The only drawback is that you do clutter up the code.
+
+Paramater order matters a lot. When you order your parameters, you need to go from general (on the left) to specific(on the right). The order of those inputs matter because you are going to provide those inputs one at a time and unfold them in that order. So for example a callback would come before something like an array because the array has specific data in it.
