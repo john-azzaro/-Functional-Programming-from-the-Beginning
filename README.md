@@ -919,6 +919,7 @@ The benefit of referential transparency is to the benefit of the reader. Within 
 <dl>
 <dd>
 
+## Partial application presets arguments for a function.
 **Partial application is presetting arguments.** A *partial application* specializes a generalized function by taking a function as its first input and then the next inputs are a set of pameters that will go along with that function at some point. This featre is included in most functional libraries. In the example below, ```getCustomer``` uses a partial application which specifies the function (ajax) and the ordered parameters (CUSTOMER_API). When you call getCustomer, you are effectively calling ajax and passing in the url and data parameters as CUSTOMER_API and the object.
 
 ```JavaScript
@@ -939,12 +940,9 @@ The benefit of referential transparency is to the benefit of the reader. Within 
 <dl>
 <dd>
 
+## Currying recieves each argument one at a time as a chained sequence of unary functions.
 **Currying is a common form of specialization that specializes a general function.** Based on the functionality of Haskel and the fact that its functions are unary, currying 
-enables you to pass along one input at a time.
-
-
-
-In the example below you will see a *manual, 3 level curry* function, we have a function called ```ajax``` that has 3 levels: an ajax level, a getData level, and a getCallBack level. 
+enables you to pass along one input at a time. In the example below you will see a *manual, 3 level curry* function, we have a function called ```ajax``` that has 3 levels: an ajax level, a getData level, and a getCallBack level. 
 ```JavaScript
   function ajax(url) {                                // level 1: ajax.
     return function getData(data) {                   // level 2: getData.
