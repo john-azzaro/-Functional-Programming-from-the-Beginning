@@ -1016,9 +1016,9 @@ Composition is critical to understanding the output of one function becoming the
   }
 
   let valueDoubled = double(10);
+  let valueDoubled = triple(valueDoubled);
+  let totalValue = baseValue + quadruple(valueDoubled);
 
-
-  
 ```
 
 
