@@ -1002,9 +1002,19 @@ For this utility, you simply need to call curry, pass in how many inputs you exp
 <dl>
 <dd>
 
+Composition is critical to understanding the output of one function becoming the input of another function.
 
+```JavaScript
+  function double(num) {
+    
+  }
+  function triple(num) {
 
+  }
+  function quadruple(num) {
 
+  }
+```
 
 
 
