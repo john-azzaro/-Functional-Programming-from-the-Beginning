@@ -1065,10 +1065,10 @@ console.log(totalProduct);                                      // 23
 ## Abstract the processes to semantically seperate concerns.
 Now suppose that after the solution above is implementsed, your boss comes back and says that its difficult for workers to use. The boss asks if you can create a single machine that can do the the whole process. In the case of your machine, you have a place where you are making the product and adding that to the baseProduct. These two things are intertwined and need to be abstracted so that they can be reasoned about independently.
 
+## Create an abstraction for the composition by wrapping it in a function.
 The solution is to write a function that makes the product (i.e. ```minus2(triple(increment(4)))```) and takes in the value 15. Then, when you add it to the baseProduct, you simply have to add the improveProduct function to it. **In effect, imporveProduct has semantically seperated the two concerns and made it much cleaner.**  The improveProduct function is where we tell the supporting function how to improve the product and totalProduct is where we tell what to do with it... specifically adding it to the baseProduct.
 
-## Creating an abstraction for the composition is wrapping it in a function
-To further the analogy, what you have effectievly doing is wrapping a box around the entire production line (i.e. minus2, triple, increment) and creating an access point where you can get to each stage of the process. The machine does what it needs to do, but as the engineer you have created the *abstraction* on how the production is done.
+To further the analogy, what you are doing is wrapping a box around the entire production line (i.e. minus2, triple, increment) and creating an access point where you can get to each stage of the process. The machine does what it needs to do, but as the engineer you have create the *abstraction* on how the production is done.
 
 ```JavaScript
 let baseProduct = 10;
@@ -1086,6 +1086,37 @@ function increment(x) {
 function improveProduct(x) {
   return minus2(triple(increment(x)));                          // 13
 }
+
+totalProduct = baseProduct + improveProduct(4);
+console.log(totalProduct);                                      // 23
+```
+
+## Create a utility to make the composition more versatile.
+Now suppose
+
+
+ This utility take 3 functions and calls a new function that will call each of those function in succession, the out of one becomes th einput of the next, etc, until the last output is finally returned . 
+
+```JavaScript
+let baseProduct = 10;
+ 
+function minus2(x) {  
+  return x - 2;
+}
+function triple(x) {
+  return x * 3;
+}
+function increment(x) {
+  return x + 1;
+}
+
+function composeThree(fn3, fn2, fn1) {                      //
+  return function composed(v) {
+    return fn3(fn2(fn1(v)));
+  }
+}
+
+let calculateProduct = composeThree(minus2, triple, increment);
 
 totalProduct = baseProduct + improveProduct(4);
 console.log(totalProduct);                                      // 23
