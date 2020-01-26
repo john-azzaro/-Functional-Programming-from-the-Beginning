@@ -1057,8 +1057,8 @@ totalProduct = baseProduct + minus2(triple(increment(4)));
 console.log(totalProduct);                                      // 23
 ```
 
-## 
-Now suppose that after the solution above is implements, your boss comes back and says that its difficult for workers to use. The boss asks if you can create a single machine that can do the the whole process. In the case of your machine, you have a place where you are making the product and adding that to the baseProduct. These two things are intertwined and need to be abstracted so that they can be reasoned about independently.
+## Abstract the processes to semantically seperate concerns.
+Now suppose that after the solution above is implementsed, your boss comes back and says that its difficult for workers to use. The boss asks if you can create a single machine that can do the the whole process. In the case of your machine, you have a place where you are making the product and adding that to the baseProduct. These two things are intertwined and need to be abstracted so that they can be reasoned about independently.
 
 The solution is to write a function that makes the product (i.e. ```minus2(triple(increment(4)))```) and takes in the value 15. Then, when you add it to the baseProduct, you simply have to add the improveProduct function to it. **In effect, imporveProduct has semantically seperated the two concerns and made it much cleaner.**  The improveProduct function is where we tell the supporting function how to improve the product and totalProduct is where we tell what to do with it... specifically adding it to the baseProduct.
 
