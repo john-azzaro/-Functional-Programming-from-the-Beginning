@@ -1002,12 +1002,14 @@ For this utility, you simply need to call curry, pass in how many inputs you exp
 <dl>
 <dd>
 
+## Composition is 
 Composition is critical to understanding the output of one function becoming the input of another function. An important concept in composition is spotting when one function call produces an output that is then routed to another function call. Often, they will often placed in a variable and then the variable is passed.
 
 ## Abstraction takes two intertwined things and seperates them.
-In abstraction, you have two or more things in a peice of code that intertwince together. In the example, we first have the concept of caluclating a shippinf rate. Second, we're adding that shippng rate to the basePrice. Those are two seperate concerns but they are wrapped up together. So abstraction is to tease apart these two concepts that are intertwined together so that they are seperate and when they are seperated, you can create a semantic boundry that allows you not to hide but seperate them.
+In abstraction, you have two or more things in a peice of code that intertwince together. In the example, we first have the concept of caluclating a shippinf rate. Second, we're adding that shippng rate to the basePrice. Those are two seperate concerns but they are wrapped up together. So abstraction is to tease apart these two concepts that are intertwined together so that they are seperate and when they are seperated, you can create a semantic boundry that allows you not to hide but seperate them. In other words, you could look at the seperate parts and understand them better.
 
-
+## 
+Think of composition like an assembly line. Raw materials come in one end on the right and a finsihed product comes out on the left. So imagine you have a conveyer belt with those raw materials going through 3 machines, with each machine composing the product to different degrees of completion. Now suppose one day your boss came to you can said your competitors are making more of the product and faster than we are... can you figure out a way to 
 
 In the example, below, we have a calculation for shipping rate. We have the base price of 10. Then, there are three function that subtract, multiply, and increment by one.
 
