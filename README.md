@@ -1002,7 +1002,13 @@ For this utility, you simply need to call curry, pass in how many inputs you exp
 <dl>
 <dd>
 
+An important concept in composition is spotting when one function call produces an output that is then routed to another function call. Often, they will often placed in a variable and then the variable is passed.
+
+In abstraction, you have two or more things in a peice of code that intertwince together. In the example, there are 
+
 Composition is critical to understanding the output of one function becoming the input of another function.
+
+In the example, below, we have a calculation for shipping rate. We have the base price of 10. Then, there are three function that subtract, multiply, and increment by one.
 
 ```JavaScript
 let basePrice = 10;
