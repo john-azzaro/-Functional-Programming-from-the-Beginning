@@ -17,4 +17,8 @@ tmp = triple(tmp);                           // 15
 console.log(tmp);
 
 totalProduct = baseProduct + minus2(tmp);
-console.log(totalProduct );                  // 23
+console.log(totalProduct);                  // 23
+
+
+totalProduct2 = baseProduct + minus2(triple(increment(4)));
+console.log(totalProduct2);                 // 23

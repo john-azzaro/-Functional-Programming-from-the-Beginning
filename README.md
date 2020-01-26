@@ -1011,7 +1011,7 @@ In abstraction, you have two or more things in a peice of code that intertwince 
 ## Think of composition as an assembly line.
 Think of composition like an assembly line. Raw materials come in one end on the right and a finsihed product comes out on the left. So imagine you have a conveyer belt with those raw materials going through 3 machines, with each machine composing the product to different degrees of completion. Now suppose one day your boss came to you can said your competitors are making more of the product and faster than we are... can you figure out a way to compete. However, there is only so much room on your factory floor so you need to think of a way to fit more of thes emachines so you can make more of the product. 
 
-In the example, below, we have a calculation for shipping rate. We have the base price of 10. Then, there are three function that subtract, multiply, and increment by one.
+In the example below, we have the INEFFICIENT production line to produce a product. We have the base price of 10. Then, there are three functions (i.e. the machines) that subtract, multiply, and increment by one which simulate the imporvements we make to the product. This example is inefficient because the temporary variable (tmp) take up space.
 
 ```JavaScript
 let baseProduct = 10;
@@ -1029,17 +1029,33 @@ function increment(x) {
 let tmp = increment(4);
 console.log(tmp);                            // 5
 
-tmp = triple(tmp);                           // 15
-console.log(tmp);
+tmp = triple(tmp);
+console.log(tmp);                            // 15
 
 totalProduct = baseProduct + minus2(tmp);
 console.log(totalProduct );                  // 23
 
 ```
 
+To make the production line above more streamlined, a better way would be to removed the temporary variable and nest the function calls inside of another function call. In this streamlined production line, we first call ```increment``` with a value of 4, call ```triple```, and call ```minus2```.
 
+```JavaScript
+let baseProduct = 10;
+ 
+function minus2(x) {  
+  return x - 2;
+}
+function triple(x) {
+  return x * 3;
+}
+function increment(x) {
+  return x + 1;
+}
 
+totalProduct = baseProduct + minus2(triple(increment(4)));
+console.log(totalProduct);                                      // 23
 
+```
 </dd>
 </dl>
 
