@@ -1002,8 +1002,8 @@ For this utility, you simply need to call curry, pass in how many inputs you exp
 <dl>
 <dd>
 
-## Composition is 
-Composition is critical to understanding the output of one function becoming the input of another function. An important concept in composition is spotting when one function call produces an output that is then routed to another function call. Often, they will often placed in a variable and then the variable is passed.
+## Composition takes the output of one function as the input of another.
+Composition is critical to understanding the output of one function becoming the input of another function. An important concept in composition is spotting when one function call produces an output that is then routed to another function call. Often, they will often placed in a variable and then the variable is passed. But you can also nest those calls together and make things a great deal more efficient.
 
 ## Abstraction takes two intertwined things and seperates them.
 In abstraction, you have two or more things in a peice of code that intertwince together. In the example, we first have the concept of caluclating a shippinf rate. Second, we're adding that shippng rate to the basePrice. Those are two seperate concerns but they are wrapped up together. So abstraction is to tease apart these two concepts that are intertwined together so that they are seperate and when they are seperated, you can create a semantic boundry that allows you not to hide but seperate them. In other words, you could look at the seperate parts and understand them better.
@@ -1037,7 +1037,8 @@ console.log(totalProduct );                  // 23
 
 ```
 
-To make the production line above more streamlined, a better way would be to removed the temporary variable and nest the function calls inside of another function call. In this streamlined production line, we first call ```increment``` with a value of 4, call ```triple```, and call ```minus2```.
+## Make the assembly line more efficient with nested calls.
+To make the production line above more streamlined, a better way would be to removed the temporary variable and nest the function calls inside of another function call. In this streamlined production line, we first call ```increment``` with a value of 4, call ```triple```, and call ```minus2```. The temporary variables were removed, thus cleaning up the code.
 
 ```JavaScript
 let baseProduct = 10;
@@ -1054,8 +1055,16 @@ function increment(x) {
 
 totalProduct = baseProduct + minus2(triple(increment(4)));
 console.log(totalProduct);                                      // 23
-
 ```
+
+## 
+Now suppose that after the solution above is implements, your boss comes back and says that its difficult for workers to use. The boss asks if you can create a single machine that can do the the whole process. In the case of your machine, you have a place where you are making the product and adding that to the baseProduct. These two things are intertwined and need to be abstracted so that they can be reasoned about independently.
+
+The solution is to write a function that makes the product (i.e. ```minus2(triple(increment(4)))```) and takes in the value 15. Then, when you add it to the baseProduct, you simply have to add the improveProduct function to it. In effect, imporveProduct has semantically seperated the two concerns and made it much cleaner.  The improveProduct function is where we tell the supporting function how to improve the product and totalProduct is where we tell what to do with it... specifically adding it to the baseProduct.
+
+
+
+
 </dd>
 </dl>
 
