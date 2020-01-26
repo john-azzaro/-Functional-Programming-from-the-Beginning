@@ -940,7 +940,7 @@ The benefit of referential transparency is to the benefit of the reader. Within 
 <dl>
 <dd>
 
-## Currying recieves each argument one at a time as a chained sequence of unary functions.
+## Currying recieves each argument one at a time as a chained sequence.
 **Currying is a common form of specialization that specializes a general function.** Based on the functionality of Haskel and the fact that its functions are unary, currying 
 enables you to pass along one input at a time. In the example below you will see a *manual, 3 level curry* function, we have a function called ```ajax``` that has 3 levels: an ajax level, a getData level, and a getCallBack level. 
 ```JavaScript
@@ -960,7 +960,7 @@ and there are 3 function calls.
     }
   }
 
-  ajax(CUSTOMER_API) ({id:25}) (renderCustomer);    // call ajax with a manual curry.
+  ajax(CUSTOMER_API) ({id:25}) (renderCustomer);    // call ajax with a chained sequence manual curry.
   //       |             |             |       
   //       |             |             |
   //    level 1       level 2       level 3
@@ -989,6 +989,23 @@ For this utility, you simply need to call curry, pass in how many inputs you exp
   let getCustomer = ajax(CUSTOMER_API);               // Will return the level 1 with CUSTOMER_API.
   let getCurrentUser = getCustomer({id:25})           // Will return the level 2 via getCustomer.
 ```
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
+
+# What is composition?
+<dl>
+<dd>
+
+
+
+
+
 
 
 
