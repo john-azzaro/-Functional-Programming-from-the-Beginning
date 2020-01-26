@@ -1,6 +1,6 @@
-let basePrice = 10;
-
-function minus2(x) {
+let baseProduct = 10;
+ 
+function minus2(x) {  
   return x - 2;
 }
 function triple(x) {
@@ -11,11 +11,10 @@ function increment(x) {
 }
 
 let tmp = increment(4);
-console.log(tmp);                        // 5
+console.log(tmp);                            // 5
 
-tmp = triple(tmp);                       // 15
+tmp = triple(tmp);                           // 15
 console.log(tmp);
 
-totalCost = basePrice + minus2(tmp);
-console.log(totalCost);                  // 23
-
+totalProduct = baseProduct + minus2(tmp);
+console.log(totalProduct );                  // 23
