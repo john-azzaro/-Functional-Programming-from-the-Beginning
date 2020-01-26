@@ -1006,14 +1006,19 @@ Composition is critical to understanding the output of one function becoming the
 
 ```JavaScript
   function double(num) {
-    
+    return num * 2;
   }
   function triple(num) {
-
+    return num * 3;
   }
   function quadruple(num) {
-
+    return num * 4;
   }
+
+  let valueDoubled = double(10);
+
+
+  
 ```
 
 
