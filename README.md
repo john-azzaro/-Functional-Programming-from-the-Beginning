@@ -13,6 +13,11 @@
 * [What-is-point-free-and-equational-reasoning?](#What-is-point-free-and-equational-reasoning)
 * [What is closure?](#What-is-closure)
 * [What is lazy and eager execution?](#What-is-lazy-and-eager-execution)
+* [What is memoization?](#What-is-memoization)
+* [What is referential transparency?](#What-is-referential-transparency)
+* [What is Partial Application?](#What-is-Partial-Application)
+* [What is Currying?](#What-is-Currying)
+* [What is composition?](#What-is-composition)
 * [](#)
 
 
@@ -915,7 +920,7 @@ The benefit of referential transparency is to the benefit of the reader. Within 
 <br>
 <br>
 
-# How do you implement specialization with Partial Application?
+# What is Partial Application?
 <dl>
 <dd>
 
@@ -936,7 +941,7 @@ The benefit of referential transparency is to the benefit of the reader. Within 
 <br>
 <br>
 
-# How do you implement specialization with Currying?
+# What is Currying?
 <dl>
 <dd>
 
