@@ -1005,19 +1005,26 @@ For this utility, you simply need to call curry, pass in how many inputs you exp
 Composition is critical to understanding the output of one function becoming the input of another function.
 
 ```JavaScript
-  function double(num) {
-    return num * 2;
-  }
-  function triple(num) {
-    return num * 3;
-  }
-  function quadruple(num) {
-    return num * 4;
-  }
+let basePrice = 10;
+ 
+function minus2(x) {  
+  return x - 2;
+}
+function triple(x) {
+  return x * 3;
+}
+function increment(x) {
+  return x + 1;
+}
 
-  let valueDoubled = double(10);
-  let valueDoubled = triple(valueDoubled);
-  let totalValue = baseValue + quadruple(valueDoubled);
+let tmp = increment(4);
+console.log(tmp);                        // 5
+
+tmp = triple(tmp);                       // 15
+console.log(tmp);
+
+totalCost = basePrice + minus2(tmp);
+console.log(totalCost);                  // 23
 
 ```
 
