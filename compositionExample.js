@@ -77,6 +77,9 @@ function composeThree(fn3, fn2, fn1) {                      //
 }
 
 let calculateProduct = composeThree(minus2, triple, increment);
+let calculateProduct2 = composeThree(increment, minus2, triple);   // Product 2
 
 totalProduct = baseProduct + calculateProduct(4);
+totalProduct2 = baseProduct + calculateProduct2(4);
 console.log(totalProduct);                                      // 23
+console.log(totalProduct2);                                     // 21
