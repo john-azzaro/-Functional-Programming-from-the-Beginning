@@ -37,6 +37,27 @@
 // totalProduct3 = baseProduct + improveProduct;
 // console.log(totalProduct3);                                      // 23
 
+// let baseProduct = 10;
+ 
+// function minus2(x) {  
+//   return x - 2;
+// }
+// function triple(x) {
+//   return x * 3;
+// }
+// function increment(x) {
+//   return x + 1;
+// }
+
+// function improveProduct(x) {
+//   let result = minus2(triple(increment(x)));
+//   return result;              
+// }
+
+// console.log(improveProduct(4));                                 // 13
+// totalProduct = baseProduct + improveProduct(4);
+// console.log(totalProduct);                                      // 23
+
 let baseProduct = 10;
  
 function minus2(x) {  
@@ -49,11 +70,13 @@ function increment(x) {
   return x + 1;
 }
 
-function improveProduct(x) {
-  let result = minus2(triple(increment(x)));
-  return result;              
+function composeThree(fn3, fn2, fn1) {                      //
+  return function composed(v) {
+    return fn3(fn2(fn1(v)));
+  }
 }
 
-console.log(improveProduct(4));                                 // 13
-totalProduct = baseProduct + improveProduct(4);
+let calculateProduct = composeThree(minus2, triple, increment);
+
+totalProduct = baseProduct + calculateProduct(4);
 console.log(totalProduct);                                      // 23
