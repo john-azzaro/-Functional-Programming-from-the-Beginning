@@ -1092,7 +1092,7 @@ console.log(totalProduct);                                      // 23
 ```
 
 ## Create a utility to make the composition more versatile.
-Now suppose
+Now suppose your boss asks that although the machine is good and it works well, other competitors 
 
 
  This utility take 3 functions and calls a new function that will call each of those function in succession, the out of one becomes th einput of the next, etc, until the last output is finally returned . 
@@ -1118,7 +1118,7 @@ function composeThree(fn3, fn2, fn1) {                      //
 
 let calculateProduct = composeThree(minus2, triple, increment);
 
-totalProduct = baseProduct + improveProduct(4);
+totalProduct = baseProduct + calculateProduct(4);
 console.log(totalProduct);                                      // 23
 ```
 
