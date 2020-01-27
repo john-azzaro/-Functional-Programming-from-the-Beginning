@@ -1092,7 +1092,7 @@ console.log(totalProduct);                                      // 23
 ```
 
 ## Create a utility to make the composition more versatile.
-Now suppose your boss asks that although the machine is good and it works well, other competitors are making machines that make machines! You can actually do this by making a utility that can take functions that are entirely different than the original machine to create a new one. In the example below, the utility take 3 functions and calls a new function that will call each of those function in succession, the out of one becomes the input of the next, etc, until the last output is finally returned. Note that the return of the "composed" function is not only point free (i.e. it can be defined without defining its points/inputs)
+Now suppose your boss asks that although the machine is good and it works well, other competitors are making machines that make machines! You can actually do this by making a utility that can take functions that are entirely different than the original machine to create a new one. In the example below, the utility take 3 functions and calls a new function that will call each of those function in succession, the out of one becomes the input of the next, etc, until the last output is finally returned. 
 
 ```JavaScript
 let baseProduct = 10;
@@ -1118,7 +1118,8 @@ let calculateProduct = composeThree(minus2, triple, increment);
 totalProduct = baseProduct + calculateProduct(4);
 console.log(totalProduct);                                      // 23
 ```
-
+## A composed function is all about data flow.
+Note that the return of the "composed" function is not only point free (i.e. it can be defined without defining its points/inputs). Note that the return is going to return in order from right to left. In so doing, composition is actually **declarative data flow**, which is the flow of data through a series of operations. Indeed, your program does not mean anything if it does not mean data flow... the whole point is that your program has data coming in, doing something, going back out. You should declare a programs data flow since a program is a series of state-transition-managed data flows.
 
 </dd>
 </dl>
