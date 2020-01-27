@@ -1092,10 +1092,7 @@ console.log(totalProduct);                                      // 23
 ```
 
 ## Create a utility to make the composition more versatile.
-Now suppose your boss asks that although the machine is good and it works well, other competitors 
-
-
- This utility take 3 functions and calls a new function that will call each of those function in succession, the out of one becomes th einput of the next, etc, until the last output is finally returned . 
+Now suppose your boss asks that although the machine is good and it works well, other competitors are making machines that make machines! You can actually do this by making a utility that can take functions that are entirely different than the original machine to create a new one. In the example below, the utility take 3 functions and calls a new function that will call each of those function in succession, the out of one becomes the input of the next, etc, until the last output is finally returned . 
 
 ```JavaScript
 let baseProduct = 10;
