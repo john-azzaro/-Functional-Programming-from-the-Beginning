@@ -1186,10 +1186,19 @@ function triple(x) {        // unary function
 }
 
 function divBy(y,x) {       // binary funciton
-  reutrn x / y;
+  return x / y;
 }
 
+divBy(2, triple( sum(3,5)));   // 12
 
+sum = curry(2, sum);
+divBy = curry(2, divBy);
+
+composeThree(
+    divBy(2),
+    triple,
+    sum(3)
+) (5);                         // 12
 
 
 

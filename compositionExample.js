@@ -84,26 +84,49 @@
 // console.log(totalProduct);                                      // 23
 // console.log(totalProduct2);                                     // 21
 
-let baseProduct = 10;
+// let baseProduct = 10;
  
-function minus2(x) {  
-  return x - 2;
+// function minus2(x) {  
+//   return x - 2;
+// }
+// function triple(x) {
+//   return x * 3;
+// }
+// function increment(x) {
+//   return x + 1;
+// }
+
+// function composeTwo(fn2, fn1) {                                   // composition utility
+//   return function composed(v) {
+//     return fn2(fn1(v));
+//   }
+// }
+
+// let product1 = composeTwo(composeTwo(minus2, triple), increment);
+// let product2 = composeTwo(minus2, composeTwo(triple, increment));
+
+// console.log(product1(4))     // 13
+// console.log(product2(4))     // 13
+
+function sum(x,y) {          // binary function
+  return x + y;
 }
-function triple(x) {
+
+function triple(x) {        // unary function
   return x * 3;
 }
-function increment(x) {
-  return x + 1;
+
+function divBy(y,x) {       // binary funciton
+  return x / y;
 }
 
-function composeTwo(fn2, fn1) {                                   // composition utility
-  return function composed(v) {
-    return fn2(fn1(v));
-  }
-}
+divBy(2, triple( sum(3,5)));   // 12
 
-let product1 = composeTwo(composeTwo(minus2, triple), increment);
-let product2 = composeTwo(minus2, composeTwo(triple, increment));
+sum = curry(2, sum);
+divBy = curry(2, divBy);
 
-console.log(product1(4))     // 13
-console.log(product2(4))     // 13
+composeThree(
+    divBy(2),
+    triple,
+    sum(3)
+) (5);                         // 12
