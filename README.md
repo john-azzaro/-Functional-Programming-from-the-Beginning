@@ -1146,7 +1146,7 @@ When you compose, you feed the functions *right-to-left* (i.e. third(second(firs
 
 Associativity is a mathematical concept where if you were given "1 + 2+ 3", the plus-sign is associative. Specificaly, the way that you group them in does NOT matter. For example, you could group "1 + 2" and add that to "3" and you would still have the same result. 
 
-Composition is associative in the sense that if you have a list of functions that need to be composed, you could compose them in any grouping and you will still get the same end result.
+Composition is associative in the sense that if you have a list of functions that need to be composed, you could compose them in any grouping and you will still get the same end result. Event hought he way that you call them would look different, they would have the same result. This is very important because we can do currying and partial applications on compositions. Thus, you dont have to know about all the functions that participate in a composition all upfront, you can curry the composer utility and then take that result and compose it with something else later.
 ```JavaScript
 let baseProduct = 10;
  
