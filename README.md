@@ -1165,7 +1165,13 @@ function composeTwo(fn2, fn1) {                                   // composition
     return fn2(fn1(v));
   }
 }
- 
+
+let product1 = composeTwo(composeTwo(minus2, triple), increment);    // associative example 1
+let product2 = composeTwo(minus2, composeTwo(triple, increment));    // associative example 2
+
+console.log(product1(4))     // 13                // same result
+console.log(product2(4))     // 13                // same result
+
 ```
 
 </dd>
