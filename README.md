@@ -1139,3 +1139,18 @@ When you compose, you feed the functions *right-to-left* (i.e. third(second(firs
 <br>
 <br>
 <br>
+
+# What is associativity?
+<dl>
+<dd>
+
+
+
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
