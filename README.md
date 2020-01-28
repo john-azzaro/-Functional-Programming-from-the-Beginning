@@ -1144,7 +1144,7 @@ When you compose, you feed the functions *right-to-left* (i.e. third(second(firs
 <dl>
 <dd>
 
-
+Associativity is a mathematical concept where if you were given "1 + 2+ 3", the plus-sign is associative. Specificaly, the way that you group them in does NOT matter. For example, you could group "1 + 2" and add that to "3" and you would still have the same sum.
 
 
 </dd>
