@@ -1174,7 +1174,26 @@ console.log(product1(4))                                               // 13 - s
 console.log(product2(4))                                               // 13 - same result
 ```
 
-## 
+## You can use a curry utlity to create a composition
+Suppose you have a number of functions that you want to compose but some of the functions have two inputs and some have one. This is a problem because only unary functions can take in one input and return one output. You can make the composeThree function a curry function and handle each of those functions independently and then curry them together.
+```JavaScript
+function sum(x,y) {          // binary function
+  return x + y;
+}
+
+function triple(x) {        // unary function
+  return x * 3;
+}
+
+function divBy(y,x) {       // binary funciton
+  reutrn x / y;
+}
+
+
+
+
+
+```
 
 
 
