@@ -1144,8 +1144,29 @@ When you compose, you feed the functions *right-to-left* (i.e. third(second(firs
 <dl>
 <dd>
 
-Associativity is a mathematical concept where if you were given "1 + 2+ 3", the plus-sign is associative. Specificaly, the way that you group them in does NOT matter. For example, you could group "1 + 2" and add that to "3" and you would still have the same sum.
+Associativity is a mathematical concept where if you were given "1 + 2+ 3", the plus-sign is associative. Specificaly, the way that you group them in does NOT matter. For example, you could group "1 + 2" and add that to "3" and you would still have the same result. 
 
+Composition is associative in the sense that if you have a list of functions that need to be composed, you could compose them in any grouping and you will still get the same end result.
+```JavaScript
+let baseProduct = 10;
+ 
+function minus2(x) {  
+  return x - 2;
+}
+function triple(x) {
+  return x * 3;
+}
+function increment(x) {
+  return x + 1;
+}
+
+function composeTwo(fn2, fn1) {                                   // composition utility
+  return function composed(v) {
+    return fn2(fn1(v));
+  }
+}
+ 
+```
 
 </dd>
 </dl>
