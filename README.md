@@ -1222,7 +1222,14 @@ chnage that occurs is intentional. In other words, its about controlling mutatio
 
 There are two trypes of immutability:
 
-Assignment immutability 
+Assignment immutability means that when you assign something to a variable or a property, it not allowed to be assigned to some other value.
+```JavaScript
+  let basePrice = 50;
+  const shippingCost = 5;
+
+  basePrice += 8;      // allowed
+  shippingCost += 2;   // not allowed
+```
 
 
 </dd>
