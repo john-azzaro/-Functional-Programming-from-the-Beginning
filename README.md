@@ -1234,7 +1234,7 @@ For example, when you use a const with a primitive like a number or a string, it
 ```
 
 ## Value immutability is a far more common problem in code.
-Many of the problems that are encountered in mutation come from a value being mutated in a way you dont expect. For example, you could have some global object with a thousand properties ascribed to it and some code somewhere changed two or three properties in a way you didnt expect. In the example below, 
+Many of the problems that are encountered in mutation come from a value being mutated in a way you dont expect. For example, you could have some global object with a thousand properties ascribed to it and some code somewhere changed two or three properties in a way you didnt expect. In the example below, the issue is that the processOrder call might contain a value bug that could throw off our entire code.
 ```JavaScript
   {
     const orderDetails = {
@@ -1248,6 +1248,8 @@ Many of the problems that are encountered in mutation come from a value being mu
     processOrder(orderDetails);           // we dont know what processOrder involves so a bug is possible.
   }
 ```
+
+## To avoid a value mutation, you need to make a value read-only.
 
 </dd>
 </dl>
