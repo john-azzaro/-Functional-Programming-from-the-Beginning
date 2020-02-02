@@ -1217,7 +1217,12 @@ composeThree(
 <dl>
 <dd>
 
-Immutability implies that 
+Immutability is the idea that something isnt going to chnage unexpectedly. However, in terms of programming, its not that the program cant chnage (which would be silly) but that the
+chnage that occurs is intentional. In other words, its about controlling mutation.
+
+There are two trypes of immutability:
+
+Assignment immutability 
 
 
 </dd>
