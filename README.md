@@ -1218,10 +1218,9 @@ composeThree(
 <dd>
 
 Immutability is the idea that something isnt going to chnage unexpectedly. However, in terms of programming, its not that the program cant chnage (which would be silly) but that the
-chnage that occurs is intentional. In other words, its about controlling mutation.
+chnage that occurs is intentional. In other words, its about controlling mutation. There are two types of immutability: Assignment immutability and
 
-There are two trypes of immutability:
-
+## Assignment immutability means it cannot be assigned another value.
 Assignment immutability means that when you assign something to a variable or a property, it not allowed to be assigned to some other value. For example, if you have a variable with the keyword "let", you can see that when you *reassign* the value from 5 to 58, we are assigning that new value into the basePrice variable. This concept of reassignment is important because numbers and strings are inherently immutable, because you cant mutate the number 50... it will always be 50. Similarly, you cant mutate the string "Hello" since it will not be Hell anymore.
 
 However, when you do the same thing with a "const" variable, you will get an error because it cannot be reassinged... only set the first time. This also means that you cannot define a "const" without assigning a value because as the example has shown, you cannot reassign anything to it.
@@ -1233,6 +1232,8 @@ However, when you do the same thing with a "const" variable, you will get an err
   shippingCost += 2;   // not allowed
 ```
 
+## 
+When you use a const with a primitive like a number or a string, it cannot be reassigned or mutated. However, when you have a const with an array or an object or a function, there are ways you can mutate the variable.
 
 </dd>
 </dl>
