@@ -1252,7 +1252,7 @@ Many of the problems that are encountered in mutation come from a value being mu
 ## To avoid a value mutation, make the value read-only with Object.freeze.
 So in order to make a data strcuture that can be read but not written to, you need to call Object.freeze. When you use Object.freeze, you are telling the object (i.e. orderDetails) that you should all the properties to have the *read-only* attribute on them so that none of them can be changed. However, this is only a shallow implementation, which means that if you have nested objects you would have to freeze each of those levels.
 
-However, should you really care if you are making an object immutable. Not really, because the real intention of Object.freeze is to tell the *reader* that 
+However, should you really care if you are making an object immutable. Not really, because the real intention of Object.freeze is to tell the *reader* that that object is immutable and move on.
 ```JavaScript
   {
     const orderDetails = {
@@ -1263,12 +1263,23 @@ However, should you really care if you are making an object immutable. Not reall
       orderDetails.items = orderedItems;
     }
 
-    processOrder(Object.freeze(orderDetails));         
+    processOrder(Object.freeze(orderDetails));     // I know that orderDetails is immutable.
   }
 ```
 
-## Read-only data structures are data structures that NEVER need to be mutated.
-For example, if you have a API JSON response, that response is done and it does not need to be altered so that should be marked as read-only.
+## Make a copy of objects to mutate it INTERNALLY
+Read-only data structures are data structures that NEVER need to be mutated. For example, if you have a API JSON response, that response is done and it does not need to be altered so that should be marked as read-only. 
+```JavaScript
+  function processOrder(order) {
+    if (!("status" in order)) {
+      order.status = "complete";      //
+    }
+  saveToDatabase(order); 
+  }
+```
+
+
+
 
 </dd>
 </dl>
