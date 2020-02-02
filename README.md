@@ -1249,7 +1249,22 @@ Many of the problems that are encountered in mutation come from a value being mu
   }
 ```
 
-## To avoid a value mutation, you need to make a value read-only.
+## To avoid a value mutation, make the value read-only with Object.freeze.
+So in order to make a data strcuture that can be read but not written to, you need to call Object.freeze. When you use Object.freeze, you care telling the object (i.e. orderDetails)
+```JavaScript
+  {
+    const orderDetails = {
+      orderId: 42,
+      total: (basePrice + shipping)
+    };
+    if (orderedItems.length > 0) {
+      orderDetails.items = orderedItems;
+    }
+
+    processOrder(Object.freeze(orderDetails));         
+  }
+```
+
 
 </dd>
 </dl>
