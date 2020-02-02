@@ -1278,14 +1278,14 @@ Read-only data structures are data structures that NEVER need to be mutated. For
   }
 ```
 
-IN order to avoid mutating order, you need to create a copy of the order object.
+IN order to avoid mutating order, you need to create a copy of the order object. Use the spread operator (...) to copy the object and then do what you want with that object
 ```JavaScript
   function processOrder(order) {
-    let processedOrder = {...order}     // copy of the order object made for internal use.
+    let processedOrder = {...order}        // copy of the order object made for internal use.
     if (!("status" in order)) {
-      order.status = "complete"; 
+      processedOrder.status = "complete"; 
     }
-  saveToDatabase(order); 
+  saveToDatabase(processedOrder); 
   }
 ```
 
