@@ -1290,6 +1290,12 @@ In order to avoid mutating order, you need to create a copy of the order object.
   }
 ```
 
+## IMMUTABLE data structures 
+If you have a data structure that DOES need to change, since there are at least going to be some data structures that need to change in some way. However, ther odd thing here is that when you need a mutable data structure, what you really need is an *immutable data structure*.
+
+An immutable data structure is one that allows *structured mutation*... structured, controlled mutation. It is the next level froma read-only 
+
+
 </dd>
 </dl>
 
