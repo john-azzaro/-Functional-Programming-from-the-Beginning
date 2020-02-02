@@ -1222,7 +1222,9 @@ chnage that occurs is intentional. In other words, its about controlling mutatio
 
 There are two trypes of immutability:
 
-Assignment immutability means that when you assign something to a variable or a property, it not allowed to be assigned to some other value.
+Assignment immutability means that when you assign something to a variable or a property, it not allowed to be assigned to some other value. For example, if you have a variable with the keyword "let", you can see that when you *reassign* the value from 5 to 58, we are assigning that new value into the basePrice variable. This concept of reassignment is important because numbers and strings are inherently immutable, because you cant mutate the number 50... it will always be 50. Similarly, you cant mutate the string "Hello" since it will not be Hell anymore.
+
+However, when you do the same thing with a "const" variable
 ```JavaScript
   let basePrice = 50;
   const shippingCost = 5;
