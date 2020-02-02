@@ -1250,7 +1250,9 @@ Many of the problems that are encountered in mutation come from a value being mu
 ```
 
 ## To avoid a value mutation, make the value read-only with Object.freeze.
-So in order to make a data strcuture that can be read but not written to, you need to call Object.freeze. When you use Object.freeze, you care telling the object (i.e. orderDetails)
+So in order to make a data strcuture that can be read but not written to, you need to call Object.freeze. When you use Object.freeze, you are telling the object (i.e. orderDetails) that you should all the properties to have the *read-only* attribute on them so that none of them can be changed. However, this is only a shallow implementation, which means that if you have nested objects you would have to freeze each of those levels.
+
+However, should you really care if you are making an object immutable. Not really, because the real intention of Object.freeze is to tell the *reader* that 
 ```JavaScript
   {
     const orderDetails = {
@@ -1265,6 +1267,8 @@ So in order to make a data strcuture that can be read but not written to, you ne
   }
 ```
 
+## Read-only data structures are data structures that NEVER need to be mutated.
+For example, if you have a API JSON response, that response is done and it does not need to be altered so that should be marked as read-only.
 
 </dd>
 </dl>
