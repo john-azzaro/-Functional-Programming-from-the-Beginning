@@ -1232,7 +1232,7 @@ However, when you do the same thing with a "const" variable, you will get an err
   shippingCost += 2;   // not allowed
 ```
 
-## 
+## Although a const is immutable, there are execptions.
 When you use a const with a primitive like a number or a string, it cannot be reassigned or mutated. However, when you have a const with an array or an object or a function, there are ways you can mutate the variable.
 
 </dd>
