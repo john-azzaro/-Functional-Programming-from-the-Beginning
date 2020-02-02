@@ -1267,19 +1267,27 @@ However, should you really care if you are making an object immutable. Not reall
   }
 ```
 
-## Make a copy of objects to mutate it INTERNALLY
-Read-only data structures are data structures that NEVER need to be mutated. For example, if you have a API JSON response, that response is done and it does not need to be altered so that should be marked as read-only. 
+## MAKE A COPY of objects to mutate it INTERNALLY.
+Read-only data structures are data structures that NEVER need to be mutated. For example, if you have a API JSON response, that response is done and it does not need to be altered so that should be marked as read-only. In the example below, the order that is passed in is mutated by status, but this is done just for the database.
 ```JavaScript
   function processOrder(order) {
     if (!("status" in order)) {
-      order.status = "complete";      //
+      order.status = "complete";      // order is being changed but only makes sense for database.
     }
   saveToDatabase(order); 
   }
 ```
 
-
-
+IN order to avoid mutating order, you need to create a copy of the order object.
+```JavaScript
+  function processOrder(order) {
+    let processedOrder = {...order}     // copy of the order object made for internal use.
+    if (!("status" in order)) {
+      order.status = "complete"; 
+    }
+  saveToDatabase(order); 
+  }
+```
 
 </dd>
 </dl>
