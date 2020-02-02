@@ -1218,7 +1218,7 @@ composeThree(
 <dd>
 
 Immutability is the idea that something isnt going to change unexpectedly. However, in terms of programming, its not that the program cant chnage (which would be silly) but that the
-chnage that occurs is intentional. In other words, its about controlling mutation. There are two types of immutability: Assignment immutability and value immutabiliyt 
+chnage that occurs is intentional. In other words, its about controlling mutation. There are two types of immutability: Assignment immutability and value immutability.
 
 ## Assignment immutability means it cannot be assigned another value.
 Assignment immutability means that when you assign something to a variable or a property, it not allowed to be assigned to some other value. For example, if you have a variable with the keyword "let", you can see that when you *reassign* the value from 5 to 58, we are assigning that new value into the basePrice variable. This concept of reassignment is important because numbers and strings are inherently immutable, because you cant mutate the number 50... it will always be 50. Similarly, you cant mutate the string "Hello" since it will not be Hell anymore.
@@ -1233,7 +1233,21 @@ For example, when you use a const with a primitive like a number or a string, it
   shippingCost += 2;   // not allowed
 ```
 
+## Value immutability is a far more common problem in code.
+Many of the problems that are encountered in mutation come from a value being mutated in a way you dont expect. For example, you could have some global object with a thousand properties ascribed to it and some code somewhere changed two or three properties in a way you didnt expect. In the example below, 
+```JavaScript
+  {
+    const orderDetails = {
+      orderId: 42,
+      total: (basePrice + shipping)
+    };
+    if (orderedItems.length > 0) {
+      orderDetails.items = orderedItems;
+    }
 
+    processOrder(orderDetails);           // we dont know what processOrder involves so a bug is possible.
+  }
+```
 
 </dd>
 </dl>
