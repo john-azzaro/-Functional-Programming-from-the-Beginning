@@ -1278,8 +1278,8 @@ Read-only data structures are data structures that NEVER need to be mutated. For
   }
 ```
 
-## MAKE A COPY of objects to mutate it INTERNALLY.
-In order to avoid mutating order, you need to create a copy of the order object. Use the spread operator (...) to copy the object and then do what you want with that object. When you do this, you can mess with that copied object all you want and you will NOT create a side-effect on the outside program. This should be done when you write a function that recieves data structures since it should be treated as read-only no matter what.
+## MAKE A COPY of objects so that you can make changes to LOCAL copy.
+In order to avoid mutating order, you need to create a copy of the order object. Use the spread operator (...) to copy the object and then do what you want with that object. When you do this, you can mess with that copied object all you want and you will NOT create a side-effect on the outside program. This should be done when you write a function that recieves data structures since it should be treated as read-only no matter what. 
 ```JavaScript
   function processOrder(order) {
     let processedOrder = {...order}        // copy of the order object made for internal use.
