@@ -18,7 +18,8 @@
 * [What is Partial Application?](#What-is-Partial-Application)
 * [What is Currying?](#What-is-Currying)
 * [What is composition?](#What-is-composition)
-* [](#)
+* [What is associativity?](#)
+* [What is immutability?](#)
 
 
 
@@ -1263,7 +1264,7 @@ However, should you really care if you are making an object immutable. Not reall
       orderDetails.items = orderedItems;
     }
 
-    processOrder(Object.freeze(orderDetails));     // I know that orderDetails is immutable.
+    processOrder(Object.freeze(orderDetails));          // I know now that orderDetails is immutable.
   }
 ```
 
@@ -1272,17 +1273,17 @@ Read-only data structures are data structures that NEVER need to be mutated. For
 ```JavaScript
   function processOrder(order) {
     if (!("status" in order)) {
-      order.status = "complete";      // order is being changed but only makes sense for database.
+      order.status = "complete";            // order is being changed but only makes sense for database.
     }
   saveToDatabase(order); 
   }
 ```
 
-## MAKE A COPY of objects so that you can make changes to LOCAL copy.
+## MAKE A COPY of objects so that you can make changes to LOCAL copies.
 In order to avoid mutating order, you need to create a copy of the order object. Use the spread operator (...) to copy the object and then do what you want with that object. When you do this, you can mess with that copied object all you want and you will NOT create a side-effect on the outside program. This should be done when you write a function that recieves data structures since it should be treated as read-only no matter what. 
 ```JavaScript
   function processOrder(order) {
-    let processedOrder = {...order}        // copy of the order object made for internal use.
+    let processedOrder = {...order}                  // copy of the order object made for internal use.
     if (!("status" in order)) {
       processedOrder.status = "complete"; 
     }
@@ -1296,6 +1297,21 @@ If you have a data structure that DOES need to change, since there are at least 
 An **immutable data structure** is a representation of the data structures we are used to dealing with, like arrays that can be accessed at index positions or objects that can be accessed at named property positions. An immutable data structure is one that allows *structured mutation*... structured, controlled mutation. It is the next level froma read-only. Ask yourself if the data structure is going to need to change in any way or form. If yes, then 
 
 But what is important to think about here is that in these cases you have access to the superficial API, which creates a layer of control that prevents unexpected chnages to the data structure. An immutable data structure is one that cannot change the data structure itself, only copy it with the changes applied.
+
+
+</dd>
+</dl>
+
+<br>
+<br>
+<br>
+<br>
+
+# What is immutability?
+<dl>
+<dd>
+
+
 
 
 
