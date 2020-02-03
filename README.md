@@ -18,8 +18,8 @@
 * [What is Partial Application?](#What-is-Partial-Application)
 * [What is Currying?](#What-is-Currying)
 * [What is composition?](#What-is-composition)
-* [What is associativity?](#)
-* [What is immutability?](#)
+* [What is associativity?](#[What-is-associativity)
+* [What is immutability?](#What-is-immutability)
 
 
 
